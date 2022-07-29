@@ -1,0 +1,36 @@
+import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter/material.dart';
+
+class RectangleTextField extends StatelessWidget {
+  const RectangleTextField({
+    Key? key,
+    this.onChanged,
+    this.validator,
+    this.focusNode,
+  }) : super(key: key);
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
+  final FocusNode? focusNode;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: 10),
+      child: TextFormField(
+        focusNode: focusNode,
+        validator: validator,
+        onChanged: onChanged,
+        cursorColor: SwiftColors.purple,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+          filled: true,
+          fillColor: Color(0xFF4D0060).withOpacity(0.06),
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(6),
+              borderSide: BorderSide(color: SwiftColors.purple, width: 2)),
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
+}
