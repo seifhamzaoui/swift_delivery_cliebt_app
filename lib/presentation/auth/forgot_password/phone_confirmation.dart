@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:client_app/presentation/auth/forgot_password/last-step.dart';
 import 'package:client_app/presentation/core/rectangle_text_field.dart';
 import 'package:client_app/presentation/error/gps_required.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,14 +11,14 @@ import 'package:client_app/presentation/auth/login_widget.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 
-class PhoneConfirmation extends StatefulWidget {
-  const PhoneConfirmation({Key? key}) : super(key: key);
+class ForgotPasswordPhoneConfirmation extends StatefulWidget {
+  const ForgotPasswordPhoneConfirmation({Key? key}) : super(key: key);
 
   @override
-  State<PhoneConfirmation> createState() => _PhoneConfirmationState();
+  State<ForgotPasswordPhoneConfirmation> createState() => _ForgotPasswordPhoneConfirmationState();
 }
 
-class _PhoneConfirmationState extends State<PhoneConfirmation> {
+class _ForgotPasswordPhoneConfirmationState extends State<ForgotPasswordPhoneConfirmation> {
   final List<FocusNode> focusNodes = List.generate(
     5,
     (index) => FocusNode(
@@ -85,7 +86,7 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
                       height: 20,
                     ),
                     Text(
-                      '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone \n 0665 78 87 73''',
+                      '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone \n 0665*****''',
                       style: TextStyle(fontSize: 13),
                     ),
                     SizedBox(
@@ -135,7 +136,7 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
                       onPressed: () {
                         Navigator.of(context).push(
                           PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) {
-                            return GpsRequired();
+                            return ForgotPasswordLastStep();
                           }, transitionsBuilder: (context, animation, secondaryAnimation, child) {
                             return AnimatedContainer(
                               curve: Curves.linear,
@@ -147,18 +148,6 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
                         );
                       },
                       text: 'Valider',
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          'Changez le numéro du Téléphone',
-                          style: TextStyle(color: SwiftColors.purple),
-                        ),
-                      ),
                     )
                   ],
                 ),

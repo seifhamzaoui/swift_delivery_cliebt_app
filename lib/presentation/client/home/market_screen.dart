@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:client_app/presentation/client/Drawer/swift_drawer.dart';
 import 'package:client_app/presentation/client/orders/food_screen.dart';
+import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
 import 'package:client_app/presentation/core/custom_navigation_bar.dart';
 import 'package:client_app/presentation/core/food_pageView_element.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +35,7 @@ class _MarketScreenState extends State<MarketScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SwiftDrawer(),
       bottomNavigationBar: CustomBottomNavigationBar(
           onChangePage: (index) {
             Navigator.of(context).pop(index);
@@ -45,20 +48,7 @@ class _MarketScreenState extends State<MarketScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomIconButton(
-                      icon: Image.asset('assets/icons/menu.png'),
-                      onPressed: () {},
-                    ),
-                    Expanded(child: Image.asset('assets/images/logo_small.png')),
-                    CustomIconButton(
-                      icon: Image.asset('assets/icons/notification.png'),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
+                CustomTopNavigationBar(),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,

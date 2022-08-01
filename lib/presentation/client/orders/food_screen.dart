@@ -43,12 +43,15 @@ class _FoodScreenState extends State<FoodScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              /// separator gris
               if (showAllPanel) const SizedBox(height: 20),
               if (showAllPanel) const GreySeparator(),
               if (showAllPanel) const SizedBox(height: 20),
+              // Combien?
               if (showAllPanel)
                 Text('combien?', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
               if (showAllPanel) const SizedBox(height: 40),
+              // button d ajouter ou reduire nombre des produit
               if (showAllPanel)
                 Container(
                   height: 80,
@@ -92,10 +95,12 @@ class _FoodScreenState extends State<FoodScreen> {
                   ),
                 ),
               Spacer(),
+              // button ajouter au panier et affichier le pris
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(width: 20),
+                  //affichage de prix
                   const Expanded(
                       flex: 1,
                       child: Text('400 da',
@@ -104,6 +109,7 @@ class _FoodScreenState extends State<FoodScreen> {
                             color: SwiftColors.orange,
                           ))),
                   const Spacer(flex: 1),
+                  // button d ajouter au panier
                   Expanded(
                     flex: 3,
                     child: PrimaryButton(
@@ -131,6 +137,7 @@ class _FoodScreenState extends State<FoodScreen> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.45,
                 width: MediaQuery.of(context).size.width,
+                // photo de produit dans decoration
                 decoration: BoxDecoration(
                   image: const DecorationImage(
                     fit: BoxFit.fill,
@@ -139,6 +146,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 ),
                 child: Stack(
                   children: [
+                    // bouton de retour
                     Positioned(
                       top: 30,
                       left: 30,
@@ -158,6 +166,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 ),
               ),
               SizedBox(height: 20),
+              // information de produit
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
@@ -193,6 +202,7 @@ class _FoodScreenState extends State<FoodScreen> {
                       ],
                     ),
                     Spacer(),
+                    //photo de magasin
                     Container(
                       height: 45,
                       width: 45,
@@ -202,6 +212,7 @@ class _FoodScreenState extends State<FoodScreen> {
                       ),
                     ),
                     SizedBox(width: 10),
+                    // titre et type de magasin
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
@@ -220,6 +231,7 @@ class _FoodScreenState extends State<FoodScreen> {
                 ),
               ),
               SizedBox(height: 20),
+              // description de produit
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Align(

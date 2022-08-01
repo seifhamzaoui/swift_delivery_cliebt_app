@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:math';
 
+import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/client/home/market_screen.dart';
@@ -34,67 +35,51 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: SwiftColors.backGrey,
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomIconButton(
-                      icon: Image.asset('assets/icons/menu.png'),
-                      onPressed: () {},
-                    ),
-                    Expanded(child: Image.asset('assets/images/logo_small.png')),
-                    CustomIconButton(
-                      icon: Image.asset('assets/icons/notification.png'),
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                CustomTextField(
-                  hintText: 'Trouvez votre restaurant….',
-                  fillColor: Colors.white,
-                  icon: Image.asset('assets/icons/search.png'),
-                ),
-                const SizedBox(height: 20),
-                SizedBox(
-                  height: 250,
-                  child: PageView(
-                    scrollDirection: Axis.horizontal,
-                    controller: _controller,
-                    children: List.generate(2, (index) {
-                      return Align(
-                        alignment: Alignment.centerLeft,
-                        child: Transform(
-                          transform: Matrix4.identity()..scale(exp(-0.1 * (_page - index).abs())),
-                          child: MarketPageViewElement(
-                            onPressed: () async {
-                              dynamic result = await Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) {
-                                  return MarketScreen();
-                                },
-                              ));
-                              if (result != null) widget.onReturnBack(result);
-                            },
-                            deliveryPrice: 200,
-                            image: AssetImage('assets/images/denys.png'),
-                            name: 'Denny\'s',
-                            review: 4.3,
-                            type: 'Fast Food',
-                          ),
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomTopNavigationBar(),
+              const SizedBox(height: 20),
+              CustomTextField(
+                hintText: 'Trouvez votre restaurant….',
+                fillColor: Colors.white,
+                icon: Image.asset('assets/icons/search.png'),
+              ),
+              const SizedBox(height: 20),
+              SizedBox(
+                height: 250,
+                child: PageView(
+                  scrollDirection: Axis.horizontal,
+                  controller: _controller,
+                  children: List.generate(2, (index) {
+                    return Align(
+                      alignment: Alignment.centerLeft,
+                      child: Transform(
+                        transform: Matrix4.identity()..scale(exp(-0.1 * (_page - index).abs())),
+                        child: MarketPageViewElement(
+                          onPressed: () async {
+                            dynamic result = await Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) {
+                                return MarketScreen();
+                              },
+                            ));
+                            if (result != null) widget.onReturnBack(result);
+                          },
+                          deliveryPrice: 200,
+                          image: AssetImage('assets/images/denys.png'),
+                          name: 'Denny\'s',
+                          review: 4.3,
+                          type: 'Fast Food',
                         ),
-                      );
-                    }),
-                  ),
+                      ),
+                    );
+                  }),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

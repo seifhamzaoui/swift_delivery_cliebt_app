@@ -106,7 +106,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  primary: SwiftColors.purple,
+                  primary: indexChoosed == 2 ? SwiftColors.orange : SwiftColors.purple,
                   fixedSize: Size(70, 70),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                 ),
@@ -115,7 +115,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 },
                 child: Image.asset(
                   'assets/icons/panier.png',
-                  color: indexChoosed == 2 ? SwiftColors.orange : null,
                 ),
               ))
         ],

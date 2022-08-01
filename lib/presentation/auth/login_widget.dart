@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:client_app/presentation/auth/forgot_password/phone_confirmation.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:client_app/presentation/welcome_screen.dart';
@@ -111,9 +112,18 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13),
                   ),
                   Spacer(),
-                  const Text(
-                    'Mot de passe oublié',
-                    style: TextStyle(color: SwiftColors.orange, fontSize: 13),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (
+                        context,
+                      ) {
+                        return ForgotPasswordPhoneConfirmation();
+                      }));
+                    },
+                    child: const Text(
+                      'Mot de passe oublié',
+                      style: TextStyle(color: SwiftColors.orange, fontSize: 13),
+                    ),
                   ),
                 ],
               ),

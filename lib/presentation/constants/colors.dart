@@ -5,4 +5,7 @@ abstract class SwiftColors {
   static const Color orange = Color(0xFFFC7700);
   static const Color hintGreyColor = Color(0xffA7A3A3);
   static const Color backGrey = Color(0xffF6F6F6);
+  static const Color green = Color(0xff30B900);
+  static const Color lightGreen = Color(0xff63FD52);
+  static const Color lightPurple = Color(0xffAE2FCE);
 }
