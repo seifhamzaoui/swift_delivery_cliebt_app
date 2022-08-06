@@ -1,9 +1,11 @@
+import 'package:client_app/application/location/location_bloc.dart';
 import 'package:client_app/presentation/client/choose_market_screen.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GpsRequired extends StatelessWidget {
   const GpsRequired({Key? key}) : super(key: key);
@@ -39,9 +41,7 @@ class GpsRequired extends StatelessWidget {
                   backColor: SwiftColors.purple,
                   frontColor: Colors.white,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
-                      return ChoosemarketScreen();
-                    })));
+                    BlocProvider.of<LocationBloc>(context).add(const LocationEvent.started());
                   },
                   text: 'Continuer',
                 )

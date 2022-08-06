@@ -30,7 +30,17 @@ dependencies:
   flutter:
     sdk: flutter
   google_maps_flutter: ^2.1.10
-
+  freezed_annotation:
+  flutter_bloc:
+  injectable:
+  dartz:
+  get_it:
+  date_format: ^2.0.6
+  geolocator: ^9.0.1
+  dio:
+  flutter_dotenv: ^5.0.2
+  file_picker: ^5.0.1
+  flutter_polyline_points: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -39,6 +49,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  injectable_generator:
+  freezed:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -60,11 +73,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - .env
     - assets/images/
     - assets/icons/
     - assets/icons/markets/
     - assets/icons/menu_items/
     - assets/icons/drawer/
+    - assets/icons/markets/submarkets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -84,6 +99,9 @@ flutter:
     - family: Montserrat-bold
       fonts:
         - asset: fonts/Montserrat-Bold.ttf
+    - family: Montserrat-semi-bold
+      fonts:
+        - asset: fonts/Montserrat-SemiBold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

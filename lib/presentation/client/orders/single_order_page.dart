@@ -18,7 +18,7 @@ class SingleOrderPage extends StatefulWidget {
 }
 
 class _SingleOrderPageState extends State<SingleOrderPage> {
-  OrderStatus orderStatus = OrderStatus.RES_PENDING;
+  OrderStatus orderStatus = OrderStatus.LIV_PENDING;
   bool showDialog = false;
   @override
   Widget build(BuildContext context) {

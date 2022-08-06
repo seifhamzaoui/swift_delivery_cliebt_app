@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:client_app/application/auth/register_bloc/register_bloc.dart';
 import 'package:client_app/presentation/auth/phone_confirmation.dart';
 import 'package:flutter/material.dart';
 
@@ -8,16 +9,13 @@ import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:client_app/presentation/welcome_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends StatelessWidget {
   const RegisterPage({
     Key? key,
   }) : super(key: key);
-  @override
-  State<RegisterPage> createState() => _RegisterPageState();
-}
 
-class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,13 +144,7 @@ class _RegisterPageState extends State<RegisterPage> with SingleTickerProviderSt
                     backColor: SwiftColors.purple,
                     frontColor: Colors.white,
                     onPressed: () {
-                      Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) {
-                            return PhoneConfirmation();
-                          },
-                        ),
-                      );
+                      BlocProvider.of<RegisterBloc>(context).add(RegisterEvent.validateinfo());
                     },
                     text: 'Inscrivez-vous',
                   ),

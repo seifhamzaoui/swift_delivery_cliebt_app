@@ -8,4 +8,6 @@ abstract class SwiftColors {
   static const Color green = Color(0xff30B900);
   static const Color lightGreen = Color(0xff63FD52);
   static const Color lightPurple = Color(0xffAE2FCE);
+  static const Color blue = Color(0xff5722FF);
+  static const Color lightblue = Color(0xff00B8FF);
 }

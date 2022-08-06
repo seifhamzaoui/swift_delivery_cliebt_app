@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:client_app/presentation/auth/forgot_password/phone_confirmation.dart';
+import 'package:client_app/presentation/auth/indexed_Register_screen.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:client_app/presentation/welcome_screen.dart';
@@ -149,7 +150,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       Navigator.of(context).push(PageRouteBuilder(
                         transitionDuration: Duration(milliseconds: 500),
                         pageBuilder: (context, animation, secondaryAnimation) {
-                          return RegisterPage();
+                          return IndexedRegisterPage();
                         },
                         transitionsBuilder: (context, animation, secondaryAnimation, child) {
                           return Material(

@@ -1,15 +1,16 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
 import 'dart:math';
+
+import 'package:client_app/presentation/client/Drawer/swift_drawer.dart';
+import 'package:client_app/presentation/client/home/settings/change_magsin_name.dart';
+import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/client/home/settings/change_password.dart';
 import 'package:client_app/presentation/client/home/settings/change_phone_number.dart';
 import 'package:client_app/presentation/client/home/settings/change_username.dart';
-import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 
 class Settings extends StatefulWidget {
@@ -20,7 +21,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool showFields = false;
+  bool showUserFields = false;
+  bool showMagasinFields = false;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -86,15 +88,16 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
                 Transform.rotate(
-                  angle: showFields ? pi / 2 : 0,
+                  angle: showUserFields ? pi / 2 : 0,
                   child: CustomIconButton(
+                    backColor: Color(0xffF4F0F6),
                     icon: Icon(
                       Icons.arrow_forward_ios,
                       color: SwiftColors.hintGreyColor,
                     ),
                     onPressed: () {
                       setState(() {
-                        showFields = !showFields;
+                        showUserFields = !showUserFields;
                       });
                     },
                   ),
@@ -102,7 +105,7 @@ class _SettingsState extends State<Settings> {
               ],
             ),
             SizedBox(height: 25),
-            if (showFields) ...[
+            if (showUserFields) ...[
               SettingsPageItem(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
@@ -134,6 +137,67 @@ class _SettingsState extends State<Settings> {
               )
             ],
             SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundColor: SwiftColors.blue.withOpacity(0.14),
+                  child: Image.asset(
+                    'assets/icons/market.png',
+                    scale: 0.8,
+                    color: SwiftColors.blue,
+                  ),
+                ),
+                Text(
+                  'Paramètres du \nMagasin',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                Transform.rotate(
+                  angle: showMagasinFields ? pi / 2 : 0,
+                  child: CustomIconButton(
+                    backColor: Color(0xffF4F0F6),
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: SwiftColors.hintGreyColor,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        showMagasinFields = !showMagasinFields;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            if (showMagasinFields) ...[
+              SettingsPageItem(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
+                    return ChangeMagasinName();
+                  })));
+                },
+                title: 'Nom du magasin',
+                value: 'Denny\'s',
+                textColor: SwiftColors.blue,
+              ),
+              const SizedBox(height: 20),
+              SettingsPageItem(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
+                    return ChangePhoneNumber();
+                  })));
+                },
+                title: 'Type de Magasin',
+                value: 'Fast Food',
+                textColor: SwiftColors.blue,
+              ),
+              const SizedBox(height: 20),
+            ],
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextButton.icon(
@@ -168,10 +232,12 @@ class SettingsPageItem extends StatelessWidget {
     required this.title,
     required this.value,
     required this.onPressed,
+    this.textColor,
   }) : super(key: key);
   final String title;
   final String value;
   final Function onPressed;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -199,12 +265,13 @@ class SettingsPageItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w100,
-                  color: SwiftColors.orange,
+                  color: textColor ?? SwiftColors.orange,
                 ),
               ),
             ],
           ),
           CustomIconButton(
+            backColor: Color(0xffF4F0F6),
             icon: Icon(
               Icons.arrow_forward_ios,
               color: SwiftColors.hintGreyColor,
