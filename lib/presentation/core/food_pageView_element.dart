@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FoodpageViewElement extends StatelessWidget {
   final double time;
@@ -23,11 +24,11 @@ class FoodpageViewElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 244,
-      width: 244,
+      height: 244.w,
+      width: 244.w,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(27),
+        borderRadius: BorderRadius.circular(27.w),
         image: DecorationImage(
           image: image,
           fit: BoxFit.cover,
@@ -54,13 +55,13 @@ class FoodpageViewElement extends StatelessWidget {
             );
           }),
           Positioned(
-            top: 30,
-            left: 30,
+            top: 30.h,
+            left: 30.w,
             child: TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
+                  borderRadius: BorderRadius.circular(7.w),
                   side: BorderSide(
                     color: Colors.white,
                   ),
@@ -72,13 +73,13 @@ class FoodpageViewElement extends StatelessWidget {
               child: Icon(
                 Icons.add,
                 color: Colors.black,
-                size: 35,
+                size: 35.sp,
               ),
             ),
           ),
           Positioned(
-            bottom: 22,
-            left: 18,
+            bottom: 22.h,
+            left: 18.w,
             child: Row(
               children: <Widget>[
                 Column(
@@ -86,12 +87,12 @@ class FoodpageViewElement extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 18.sp, color: Colors.white),
                     ),
                     SizedBox(height: 5),
                     Text(
                       'Livrasion en ${time.floor().toInt()} min',
-                      style: TextStyle(fontSize: 13, color: Colors.grey),
+                      style: TextStyle(fontSize: 15.sp, color: Colors.grey),
                     ),
                   ],
                 ),

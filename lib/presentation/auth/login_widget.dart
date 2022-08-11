@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/auth/register_page.dart';
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -35,17 +37,18 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(alignment: Alignment.center, child: GreySeparator()),
-              SizedBox(height: 20),
-              Text('CONNECTEZ-VOUS', style: TextStyle(fontSize: 24, color: SwiftColors.purple)),
+              SizedBox(height: 20.h),
+              Text('CONNECTEZ-VOUS',
+                  style: TextStyle(
+                      fontSize: 24.sp, color: SwiftColors.purple, fontFamily: 'future-friends')),
               SizedBox(
                 height: 10,
               ),
               Text(
                 'Connectez-vous pour voir vos magasins\npréférés',
-                style: TextStyle(fontSize: 14),
               ),
               SizedBox(
-                height: 40,
+                height: 40.h,
               ),
               Hero(
                 tag: 'username',
@@ -55,17 +58,17 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                     children: [
                       Text(
                         'Nom d\'utilisateur*',
-                        style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
+                        style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 20.h,
                       ),
                       CustomTextField(
                         hintText: 'Insérez votre nom d\'utilisateur',
-                        icon: Image.asset('assets/icons/person.png'),
+                        icon: SvgPicture.asset('assets/icons/person.svg'),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 20.h,
                       ),
                     ],
                   ),
@@ -79,7 +82,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                       children: [
                         Text(
                           'Mot de passe*',
-                          style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
+                          style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
                         ),
                         SizedBox(
                           height: 20,
@@ -87,7 +90,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         CustomTextField(
                           obscureText: true,
                           hintText: 'Insérez votre mot de passe',
-                          icon: Image.asset('assets/icons/lock.png'),
+                          icon: SvgPicture.asset('assets/icons/lock.svg'),
                         ),
                         SizedBox(
                           height: 20,
@@ -108,9 +111,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                           width: 0,
                         ),
                       )),
-                  const Text(
+                  Text(
                     'Souvenez de moi',
-                    style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13),
+                    style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13.sp),
                   ),
                   Spacer(),
                   TextButton(
@@ -121,9 +124,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         return ForgotPasswordPhoneConfirmation();
                       }));
                     },
-                    child: const Text(
+                    child: Text(
                       'Mot de passe oublié',
-                      style: TextStyle(color: SwiftColors.orange, fontSize: 13),
+                      style: TextStyle(color: SwiftColors.orange, fontSize: 13.sp),
                     ),
                   ),
                 ],
@@ -137,13 +140,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 onPressed: () {},
                 text: 'Connectez-vous',
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text(
+                  Text(
                     'Vous n\'avez pas de compte?',
-                    style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13),
+                    style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13.sp),
                   ),
                   TextButton(
                     onPressed: () {
@@ -188,9 +191,9 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                         },
                       ));
                     },
-                    child: const Text(
+                    child: Text(
                       'Inscrivez-vous',
-                      style: TextStyle(color: SwiftColors.orange, fontSize: 13),
+                      style: TextStyle(color: SwiftColors.orange, fontSize: 13.sp),
                     ),
                   ),
                 ],
@@ -212,7 +215,7 @@ class GreySeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 6,
-      width: 96,
+      width: 96.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
         color: Color(0xFFE6E6E6),

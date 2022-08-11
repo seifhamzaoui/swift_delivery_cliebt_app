@@ -26,19 +26,35 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SwiftDrawer(),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        onChangePage: changeIndex,
-        indexChoosed: pageindex,
-      ),
-      body: IndexedStack(
-        index: pageindex,
-        children: [
-          MainScreen(onReturnBack: changeIndex),
-          OrdersScreen(),
-          Panier(),
-          FavoriteScreen(),
-          Settings()
-        ],
+      // bottomNavigationBar: CustomBottomNavigationBar(
+      //   onChangePage: changeIndex,
+      //   indexChoosed: pageindex,
+      // ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            IndexedStack(
+              index: pageindex,
+              children: [
+                MainScreen(onReturnBack: changeIndex),
+                OrdersScreen(),
+                Panier(),
+                FavoriteScreen(),
+                Settings()
+              ],
+            ),
+            Positioned(
+                bottom: 0,
+                child: Container(
+                  child: CustomBottomNavigationBar(
+                    onChangePage: changeIndex,
+                    indexChoosed: pageindex,
+                  ),
+                ))
+          ],
+        ),
       ),
     );
   }

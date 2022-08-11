@@ -1,7 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
@@ -23,12 +26,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
             child: ClipPath(
               clipper: NavigationBarClipper(),
               child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 244, 240, 240),
-                ),
-                height: 100,
+                decoration: BoxDecoration(color: Colors.white),
+                height: 105,
+                width: MediaQuery.of(context).size.width,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
                       flex: 1,
@@ -36,8 +39,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           onChangePage(0);
                         },
-                        icon: Image.asset(
-                          'assets/icons/home.png',
+                        icon: SvgPicture.asset(
+                          indexChoosed == 0
+                              ? 'assets/icons/home_fill.svg'
+                              : 'assets/icons/home.svg',
                           color: indexChoosed == 0 ? SwiftColors.orange : null,
                         ),
                         title: 'Home',
@@ -50,9 +55,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           onChangePage(1);
                         },
-                        icon: Image.asset(
-                          'assets/icons/commande.png',
-                          color: indexChoosed == 1 ? SwiftColors.orange : null,
+                        icon: SvgPicture.asset(
+                          indexChoosed == 1
+                              ? 'assets/icons/commande_fill.svg'
+                              : 'assets/icons/commande.svg',
                         ),
                         title: 'Commande',
                         textColor: indexChoosed == 1 ? SwiftColors.orange : null,
@@ -63,8 +69,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                       child: Align(
                           alignment: Alignment(0, 0.5),
                           child: Text(
-                            'panier',
-                            style: TextStyle(color: indexChoosed == 2 ? SwiftColors.orange : null),
+                            'Panier',
+                            style: TextStyle(
+                                color: indexChoosed == 2 ? SwiftColors.orange : null,
+                                fontSize: 13.sp),
                           )),
                     ),
                     Expanded(
@@ -73,8 +81,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           onChangePage(3);
                         },
-                        icon: Image.asset(
-                          'assets/icons/favoris.png',
+                        icon: SvgPicture.asset(
+                          indexChoosed == 3
+                              ? 'assets/icons/favoris_fill.svg'
+                              : 'assets/icons/favoris.svg',
                           color: indexChoosed == 3 ? SwiftColors.orange : null,
                         ),
                         title: 'Favoris',
@@ -87,9 +97,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
                         onPressed: () {
                           onChangePage(4);
                         },
-                        icon: Image.asset(
-                          'assets/icons/settings.png',
-                          color: indexChoosed == 4 ? SwiftColors.orange : null,
+                        icon: SvgPicture.asset(
+                          indexChoosed == 4
+                              ? 'assets/icons/settings_fill.svg'
+                              : 'assets/icons/settings.svg',
                         ),
                         title: 'Parametre',
                         textColor: indexChoosed == 4 ? SwiftColors.orange : null,
@@ -102,19 +113,19 @@ class CustomBottomNavigationBar extends StatelessWidget {
           ),
           Positioned(
               bottom: 50,
-              left: MediaQuery.of(context).size.width / 2.4,
+              left: (MediaQuery.of(context).size.width / 2.5),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   primary: indexChoosed == 2 ? SwiftColors.orange : SwiftColors.purple,
                   fixedSize: Size(70, 70),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
                 ),
                 onPressed: () {
                   onChangePage(2);
                 },
-                child: Image.asset(
-                  'assets/icons/panier.png',
+                child: SvgPicture.asset(
+                  'assets/icons/panier.svg',
                 ),
               ))
         ],
@@ -143,14 +154,17 @@ class BottomNavigationElement extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
+          Spacer(),
           icon,
-          SizedBox(height: 5),
+          SizedBox(height: 5.h),
           Text(
             title,
-            style: TextStyle(fontSize: 13, color: textColor),
+            style: TextStyle(fontSize: 13.sp, color: textColor),
           ),
+          Spacer(),
+          if (textColor == SwiftColors.orange) Image.asset('assets/icons/triangle.png'),
         ],
       ),
     );

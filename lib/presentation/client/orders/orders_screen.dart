@@ -1,8 +1,13 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+
 import 'package:client_app/presentation/client/orders/single_order_page.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../constants/enums.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({Key? key}) : super(key: key);
@@ -16,14 +21,17 @@ class _OrdersScreenState extends State<OrdersScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         child: Column(
           children: [
             CustomTopNavigationBar(),
-            OrdersScreenMenuItem(),
-            OrdersScreenMenuItem(),
-            OrdersScreenMenuItem(),
+            OrdersScreenMenuItem(
+              orderStatus: OrderStatus.LIV_PENDING,
+            ),
+            OrdersScreenMenuItem(orderStatus: OrderStatus.COMPLETED),
+            OrdersScreenMenuItem(orderStatus: OrderStatus.RES_PENDING),
+            const SizedBox(height: 120),
           ],
         ),
       ),
@@ -34,22 +42,24 @@ class _OrdersScreenState extends State<OrdersScreen> {
 class OrdersScreenMenuItem extends StatelessWidget {
   const OrdersScreenMenuItem({
     Key? key,
+    required this.orderStatus,
   }) : super(key: key);
 
+  final OrderStatus orderStatus;
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 26, vertical: 17),
+        padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 17.h),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 41,
-                  width: 41,
+                  height: 41.w,
+                  width: 41.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
@@ -75,10 +85,22 @@ class OrdersScreenMenuItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '*Commande Livré*',
+                  orderStatus == OrderStatus.COMPLETED
+                      ? '*Commande Complété*'
+                      : orderStatus == OrderStatus.RES_PENDING
+                          ? '*En attente de Validation*'
+                          : orderStatus == OrderStatus.CANCELLED
+                              ? '*Commande Annulé*'
+                              : '*En attente de Livraison*',
                   style: TextStyle(
-                    fontSize: 12,
-                    color: SwiftColors.green,
+                    fontSize: 12.sp,
+                    color: orderStatus == OrderStatus.COMPLETED
+                        ? SwiftColors.green
+                        : orderStatus == OrderStatus.RES_PENDING
+                            ? SwiftColors.purple
+                            : orderStatus == OrderStatus.CANCELLED
+                                ? Colors.red
+                                : SwiftColors.purple,
                   ),
                 ),
               ],
@@ -92,7 +114,7 @@ class OrdersScreenMenuItem extends StatelessWidget {
                   return FoodOrderMenuitem();
                 }),
                 separatorBuilder: ((context, index) {
-                  return SizedBox(width: 20);
+                  return SizedBox(width: 20.w);
                 }),
                 itemCount: 3,
               ),
@@ -101,7 +123,7 @@ class OrdersScreenMenuItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,7 +132,7 @@ class OrdersScreenMenuItem extends StatelessWidget {
                       'Total',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         color: SwiftColors.hintGreyColor,
                       ),
                     ),
@@ -118,7 +140,7 @@ class OrdersScreenMenuItem extends StatelessWidget {
                       '1400 DA',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 21,
+                        fontSize: 21.sp,
                         color: SwiftColors.orange,
                       ),
                     ),
@@ -151,21 +173,20 @@ class FoodOrderMenuitem extends StatelessWidget {
   const FoodOrderMenuitem({
     Key? key,
   }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 88,
+      width: 88.w,
       child: Column(
         children: [
           Container(
-            height: 80,
-            width: 88,
+            height: 80.w,
+            width: 88.w,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(9),
+                borderRadius: BorderRadius.circular(9.w),
                 image: DecorationImage(image: AssetImage('assets/images/burger.png'))),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 5.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -175,6 +196,7 @@ class FoodOrderMenuitem extends StatelessWidget {
                   maxLines: 3,
                   softWrap: true,
                   overflow: TextOverflow.fade,
+                  style: TextStyle(fontSize: 14.sp),
                 ),
               ),
               CircleAvatar(
@@ -183,9 +205,7 @@ class FoodOrderMenuitem extends StatelessWidget {
                 radius: 15,
                 child: Text(
                   '1',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
                 ),
               )
             ],

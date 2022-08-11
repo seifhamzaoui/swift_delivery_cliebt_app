@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddProductorCategory extends StatefulWidget {
   const AddProductorCategory({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class AddProductorCategory extends StatefulWidget {
 class _AddProductorCategoryState extends State<AddProductorCategory> {
   List<String> types = ['Produit', 'Catégorie'];
   String choosed = 'Produit';
-  bool isFirstTime = false;
+  bool isFirstTime = true;
   bool isProduct = false;
   bool isCategory = true;
   bool isProductForCategory = false;
@@ -30,16 +31,21 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomIconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
+              Row(
+                children: [
+                  CustomIconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {},
                   ),
-                  onPressed: () {}),
+                ],
+              ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -50,31 +56,31 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                             : 'AJOUTER UN \nCategorie',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 30,
-                      fontFamily: 'Montserrat-medium',
+                      fontSize: 30.sp,
+                      fontFamily: 'future-friends',
                       color: SwiftColors.purple,
                     )),
               ),
-              const SizedBox(height: 75),
+              SizedBox(height: 75.h),
               if (!isProductForCategory)
                 Text(
                   'Vous pouvez ajouter une catégorie ou un \nproduit selon votre activité',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontFamily: 'Montserrat-semi-bold',
                   ),
                 ),
               if (isProductForCategory) Text('Catégorie*'),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               if (isProductForCategory)
                 Text(
                   'Burger',
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 35.sp,
                     color: SwiftColors.orange,
                   ),
                 ),
-              const SizedBox(height: 5),
+              SizedBox(height: 5.h),
               if (!isProductForCategory)
                 Text(
                   isFirstTime
@@ -86,25 +92,25 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                               : '',
                   style: TextStyle(color: SwiftColors.purple),
                 ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               if (isFirstTime)
                 Text(
                   'Type d\'élément*',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                   ),
                 ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               if (isFirstTime)
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(6),
                       border: Border.fromBorderSide(
                         BorderSide(color: Colors.black, width: 1.5),
                       )),
                   child: DropdownButton<String>(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(10.w),
                     isExpanded: true,
                     underline: Container(),
                     value: choosed,
@@ -121,20 +127,20 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                     },
                   ),
                 ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 isFirstTime || isCategory ? 'Nom du Catégorie*' : 'Nom du produit*',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomTextField(hintText: 'Insérez le nom du votre produit'),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 isFirstTime || isCategory ? 'Nom du Catégorie*' : 'Nom du produit*',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                 ),
               ),
               if (isProduct)
@@ -151,21 +157,21 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                       ),
                       child: Icon(
                         Icons.camera_alt_rounded,
-                        size: 80,
+                        size: 80.sp,
                         color: SwiftColors.hintGreyColor,
                       ),
                     ),
                   ),
                 ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               if (isCategory)
                 SizedBox(
                   height: 350,
                   child: GridView.count(
-                      mainAxisSpacing: 20,
+                      mainAxisSpacing: 20.w,
                       crossAxisCount: 3,
                       scrollDirection: Axis.horizontal,
-                      crossAxisSpacing: 20,
+                      crossAxisSpacing: 20.h,
                       children: List.generate(
                         15,
                         (index) => ChooseProductCategoryChecked(
@@ -179,7 +185,7 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                         ),
                       ).toList()),
                 ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Align(
                 child: PrimaryButton(
                   backColor: SwiftColors.purple,
@@ -218,8 +224,8 @@ class ChooseProductCategoryChecked extends StatelessWidget {
         onPressed(index);
       },
       child: Container(
-        height: 90,
-        width: 90,
+        height: 90.w,
+        width: 90.w,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.white,
@@ -238,7 +244,7 @@ class ChooseProductCategoryChecked extends StatelessWidget {
                     radius: 10,
                     child: Icon(
                       Icons.check,
-                      size: 15,
+                      size: 15.sp,
                       color: Colors.white,
                     ),
                   )),

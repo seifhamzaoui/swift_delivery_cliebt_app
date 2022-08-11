@@ -9,6 +9,7 @@ import 'package:client_app/application/auth/register_bloc/register_bloc.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/constants/enums.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddWorkingTimeInfo extends StatefulWidget {
   const AddWorkingTimeInfo({Key? key}) : super(key: key);
@@ -46,172 +47,192 @@ class _AddWorkingTimeInfoState extends State<AddWorkingTimeInfo> {
         return false;
       }),
       child: Scaffold(
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 56),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 72),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'COMPLETEZ VOTRE PROFILE DU MAGASIN',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: SwiftColors.purple, fontSize: 24),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swift-background.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 56),
+            child: Align(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 72),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'COMPLETEZ VOTRE PROFILE DU MAGASIN',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'future-friends',
+                              color: SwiftColors.purple,
+                              fontSize: 24.sp),
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 72),
-                    Text(
-                      'Horaires de travail*',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    const SizedBox(height: 17),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('De:'),
-                        DropdownButton<DateTime>(
-                          value: beginhour,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: hoursofTheDy
-                              .map((hour) => DropdownMenuItem(
-                                    child: Text(formatDate(hour, [
-                                      HH,
-                                      ':',
-                                      nn,
-                                    ])),
-                                    value: hour,
-                                  ))
-                              .toList(),
-                          onChanged: (DateTime? newValue) {
-                            setState(() {
-                              beginhour = newValue ?? beginhour;
-                            });
-                          },
-                        ),
-                        Text('à :'),
-                        DropdownButton<DateTime>(
-                          value: endhour,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: hoursofTheDy
-                              .map((hour) => DropdownMenuItem(
-                                    child: Text(formatDate(hour, [
-                                      HH,
-                                      ':',
-                                      nn,
-                                    ])),
-                                    value: hour,
-                                  ))
-                              .toList(),
-                          onChanged: (DateTime? newValue) {
-                            setState(() {
-                              endhour = newValue ?? endhour;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 46),
-                    Text(
-                      'Jours de travail*',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    const SizedBox(height: 17),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('De:'),
-                        DropdownButton<DateTime>(
-                          value: beginDay,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: daysofTheWeek
-                              .map((day) => DropdownMenuItem(
-                                    child: Text(formatDate(day, [DD], locale: FrenchDateLocale())),
-                                    value: day,
-                                  ))
-                              .toList(),
-                          onChanged: Alldays
-                              ? null
-                              : (DateTime? newValue) {
-                                  setState(() {
-                                    beginDay = newValue ?? beginDay;
-                                  });
-                                },
-                        ),
-                        Text('à :'),
-                        DropdownButton<DateTime>(
-                          value: endDay,
-                          icon: const Icon(Icons.keyboard_arrow_down),
-                          items: daysofTheWeek
-                              .map((day) => DropdownMenuItem(
-                                    child: Text(formatDate(day, [DD], locale: FrenchDateLocale())),
-                                    value: day,
-                                  ))
-                              .toList(),
-                          onChanged: Alldays
-                              ? null
-                              : (DateTime? newValue) {
-                                  setState(() {
-                                    endDay = newValue ?? endDay;
-                                  });
-                                },
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 17),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Checkbox(
-                            value: Alldays,
-                            activeColor: SwiftColors.purple,
-                            onChanged: (val) {
+                      const SizedBox(height: 72),
+                      Text(
+                        'Horaires de travail*',
+                        style: TextStyle(fontSize: 16.sp),
+                      ),
+                      const SizedBox(height: 17),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('De:', style: TextStyle(fontSize: 14.sp)),
+                          DropdownButton<DateTime>(
+                            value: beginhour,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: hoursofTheDy
+                                .map((hour) => DropdownMenuItem(
+                                      child: Text(
+                                          formatDate(hour, [
+                                            HH,
+                                            ':',
+                                            nn,
+                                          ]),
+                                          style: TextStyle(fontSize: 14.sp)),
+                                      value: hour,
+                                    ))
+                                .toList(),
+                            onChanged: (DateTime? newValue) {
                               setState(() {
-                                Alldays = val ?? Alldays;
+                                beginhour = newValue ?? beginhour;
                               });
                             },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(7),
-                              side: const BorderSide(
-                                color: SwiftColors.hintGreyColor,
-                                width: 0,
-                              ),
-                            )),
-                        Text(
-                          'Tout les jours de semaine',
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 72),
-                    Align(
-                      alignment: Alignment.center,
-                      child: PrimaryButton(
-                          backColor: SwiftColors.purple,
-                          frontColor: Colors.white,
-                          onPressed: () {
-                            BlocProvider.of<RegisterBloc>(context).add(RegisterEvent.setWorkingTime(
-                              beginDay: beginDay,
-                              endDay: endDay,
-                              beginHour: beginhour,
-                              endHour: endhour,
-                              workAlldays: Alldays,
-                            ));
-                          },
-                          text: 'Continuer'),
-                    )
-                  ],
+                          ),
+                          Text('à :', style: TextStyle(fontSize: 14.sp)),
+                          DropdownButton<DateTime>(
+                            value: endhour,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: hoursofTheDy
+                                .map((hour) => DropdownMenuItem(
+                                      child: Text(
+                                          formatDate(hour, [
+                                            HH,
+                                            ':',
+                                            nn,
+                                          ]),
+                                          style: TextStyle(fontSize: 14.sp)),
+                                      value: hour,
+                                    ))
+                                .toList(),
+                            onChanged: (DateTime? newValue) {
+                              setState(() {
+                                endhour = newValue ?? endhour;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 46),
+                      Text(
+                        'Jours de travail*',
+                        style: TextStyle(fontSize: 16.sp),
+                      ),
+                      const SizedBox(height: 17),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('De:'),
+                          DropdownButton<DateTime>(
+                            value: beginDay,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: daysofTheWeek
+                                .map((day) => DropdownMenuItem(
+                                      child: Text(
+                                        formatDate(day, [DD], locale: FrenchDateLocale()),
+                                        style: TextStyle(fontSize: 14.sp),
+                                      ),
+                                      value: day,
+                                    ))
+                                .toList(),
+                            onChanged: Alldays
+                                ? null
+                                : (DateTime? newValue) {
+                                    setState(() {
+                                      beginDay = newValue ?? beginDay;
+                                    });
+                                  },
+                          ),
+                          Text('à :'),
+                          DropdownButton<DateTime>(
+                            value: endDay,
+                            icon: const Icon(Icons.keyboard_arrow_down),
+                            items: daysofTheWeek
+                                .map((day) => DropdownMenuItem(
+                                      child: Text(formatDate(day, [DD], locale: FrenchDateLocale()),
+                                          style: TextStyle(fontSize: 14.sp)),
+                                      value: day,
+                                    ))
+                                .toList(),
+                            onChanged: Alldays
+                                ? null
+                                : (DateTime? newValue) {
+                                    setState(() {
+                                      endDay = newValue ?? endDay;
+                                    });
+                                  },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 17),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Checkbox(
+                              value: Alldays,
+                              activeColor: SwiftColors.purple,
+                              onChanged: (val) {
+                                setState(() {
+                                  Alldays = val ?? Alldays;
+                                });
+                              },
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(7),
+                                side: const BorderSide(
+                                  color: SwiftColors.hintGreyColor,
+                                  width: 0,
+                                ),
+                              )),
+                          Text(
+                            'Tout les jours de semaine',
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 72),
+                      Align(
+                        alignment: Alignment.center,
+                        child: PrimaryButton(
+                            backColor: SwiftColors.purple,
+                            frontColor: Colors.white,
+                            onPressed: () {
+                              BlocProvider.of<RegisterBloc>(context)
+                                  .add(RegisterEvent.setWorkingTime(
+                                beginDay: beginDay,
+                                endDay: endDay,
+                                beginHour: beginhour,
+                                endHour: endhour,
+                                workAlldays: Alldays,
+                              ));
+                            },
+                            text: 'Continuer'),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        )),
+          )),
+        ),
       ),
     );
   }

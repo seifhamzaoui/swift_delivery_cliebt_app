@@ -12,24 +12,25 @@ class DevenirLivreur extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: SwiftColors.backGrey,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(30),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: CustomIconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
+            Row(
+              children: [
+                CustomIconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  backColor: SwiftColors.backGrey,
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                backColor: SwiftColors.backGrey,
-              ),
+              ],
             ),
             const SizedBox(height: 79),
             Image.asset('assets/images/logo_small.png'),

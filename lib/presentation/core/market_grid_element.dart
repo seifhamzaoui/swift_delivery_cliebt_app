@@ -1,5 +1,7 @@
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MarketGridElement extends StatelessWidget {
   const MarketGridElement({
@@ -18,28 +20,31 @@ class MarketGridElement extends StatelessWidget {
         GestureDetector(
           onTap: onPressed ?? () {},
           child: Container(
-            height: 130,
-            width: 130,
+            height: 130.w,
+            width: 130.w,
             decoration: BoxDecoration(
-              gradient:
-                  LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [
-                Color(0xffF97501),
-                Color(0xffF97501),
-              ]),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xffFC7700),
+                  Color(0xffEA6F00).withOpacity(1),
+                ],
+              ),
               color: SwiftColors.orange,
-              borderRadius: BorderRadius.circular(65),
+              borderRadius: BorderRadius.circular(65.w),
             ),
             child: Center(
-              child: Image.asset(iconPath),
+              child: SvgPicture.asset(iconPath),
             ),
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Text(
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 14.sp,
           ),
         ),
       ],

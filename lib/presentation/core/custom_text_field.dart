@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -29,10 +30,10 @@ class CustomTextField extends StatelessWidget {
         TextFormField(
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(top: 24, bottom: 24, right: 50),
+            contentPadding: EdgeInsets.only(top: 24.h, bottom: 24.h, right: 10.w),
             filled: true,
             prefixIcon: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: icon,
             ),
             suffixIcon: suffixIcon,
@@ -46,7 +47,7 @@ class CustomTextField extends StatelessWidget {
               ),
             ),
             hintStyle: TextStyle(
-                color: SwiftColors.hintGreyColor, fontSize: 13, overflow: TextOverflow.ellipsis),
+                color: SwiftColors.hintGreyColor, fontSize: 13.sp, overflow: TextOverflow.ellipsis),
           ),
           onChanged: onChanged,
           validator: validator,

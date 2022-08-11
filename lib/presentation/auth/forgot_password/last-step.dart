@@ -11,6 +11,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:client_app/presentation/auth/login_widget.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgotPasswordLastStep extends StatefulWidget {
   const ForgotPasswordLastStep({Key? key}) : super(key: key);
@@ -52,6 +53,8 @@ class _ForgotPasswordLastStepState extends State<ForgotPasswordLastStep> {
                       child: Image.asset(
                         'assets/images/eliptic_preview.png',
                         fit: BoxFit.fill,
+                        color: Colors.black.withOpacity(0.7),
+                        colorBlendMode: BlendMode.darken,
                       ),
                     ),
                   ),
@@ -67,11 +70,11 @@ class _ForgotPasswordLastStepState extends State<ForgotPasswordLastStep> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30.w),
+                  topRight: Radius.circular(30.w),
                 ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 43, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 43.w, vertical: 20),
               height: MediaQuery.of(context).size.height * 0.55,
               child: SingleChildScrollView(
                 child: Column(
@@ -81,21 +84,22 @@ class _ForgotPasswordLastStepState extends State<ForgotPasswordLastStep> {
                     SizedBox(height: 20),
                     Text(
                       'UNE DERNIERE ETAPE..',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 22),
+                      style: TextStyle(
+                          fontFamily: 'future-friends', color: SwiftColors.purple, fontSize: 22.sp),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Text(
                       'Veuillez saisir votre nouvel mot de passe',
-                      style: TextStyle(fontSize: 13),
+                      style: TextStyle(fontSize: 15.sp),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
                       'Nouveau mot de passe*',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 16),
+                      style: TextStyle(color: SwiftColors.purple, fontSize: 16.sp),
                     ),
                     SizedBox(height: 20),
                     CustomTextField(hintText: 'Le nouveaux mot de passe'),

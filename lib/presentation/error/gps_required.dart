@@ -13,39 +13,48 @@ class GpsRequired extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20),
-        child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'GPS REQUIS!',
-                  style: TextStyle(color: SwiftColors.purple, fontSize: 24),
-                ),
-                Text(
-                  'le GPS nous permet de calculer \nles tarifs de livraison par rapport à \nvotre emplacement',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 14),
-                ),
-                Align(alignment: Alignment.center, child: Image.asset('assets/images/gps.png')),
-                Text(
-                  'ACTIVEZ VOTRE GPS \nS\'IL VOUS PLAIT',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: SwiftColors.purple, fontSize: 24),
-                ),
-                PrimaryButton(
-                  backColor: SwiftColors.purple,
-                  frontColor: Colors.white,
-                  onPressed: () {
-                    BlocProvider.of<LocationBloc>(context).add(const LocationEvent.started());
-                  },
-                  text: 'Continuer',
-                )
-              ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/swift-background.png'),
+            fit: BoxFit.fill,
+          ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 20),
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'GPS REQUIS!',
+                    style: TextStyle(
+                        fontFamily: 'future-friends', color: SwiftColors.purple, fontSize: 24),
+                  ),
+                  Text(
+                    'le GPS nous permet de calculer \nles tarifs de livraison par rapport à \nvotre emplacement',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  Align(alignment: Alignment.center, child: Image.asset('assets/images/gps.png')),
+                  Text(
+                    'ACTIVEZ VOTRE GPS \nS\'IL VOUS PLAIT',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: SwiftColors.purple, fontSize: 24),
+                  ),
+                  PrimaryButton(
+                    backColor: SwiftColors.purple,
+                    frontColor: Colors.white,
+                    onPressed: () {
+                      BlocProvider.of<LocationBloc>(context).add(const LocationEvent.started());
+                    },
+                    text: 'Continuer',
+                  )
+                ],
+              ),
             ),
           ),
         ),

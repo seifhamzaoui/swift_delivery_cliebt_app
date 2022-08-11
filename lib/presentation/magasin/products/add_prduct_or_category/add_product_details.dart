@@ -5,6 +5,7 @@ import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddProductDetails extends StatefulWidget {
   const AddProductDetails({Key? key}) : super(key: key);
@@ -25,42 +26,47 @@ class _AddProductDetailsState extends State<AddProductDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomIconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {}),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  CustomIconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {}),
+                ],
+              ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
                   'AJOUTER UN \nPODUIT',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 30,
-                    fontFamily: 'Montserrat-semi-bold',
+                    fontSize: 30.sp,
+                    fontFamily: 'future-friends',
                     color: SwiftColors.purple,
                   ),
                 ),
               ),
-              const SizedBox(height: 70),
+              SizedBox(height: 70.h),
               Text(
                 'Description du produit*',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   fontFamily: 'Montserrat-semi-bold',
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               TextFormField(
                 maxLines: 10,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(22),
+                  contentPadding: EdgeInsets.all(22.w),
                   filled: true,
                   fillColor: Color(0xFF4D0060).withOpacity(0.06),
                   hintText: 'Insérez le nom du votre magasin',
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.w),
                     borderSide: BorderSide(
                       width: 0,
                       style: BorderStyle.none,
@@ -68,18 +74,18 @@ class _AddProductDetailsState extends State<AddProductDetails> {
                   ),
                   hintStyle: TextStyle(
                       color: SwiftColors.hintGreyColor,
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       overflow: TextOverflow.ellipsis),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 'Prix*',
-                style: TextStyle(fontSize: 16, fontFamily: 'Montserrat-semi-bold'),
+                style: TextStyle(fontSize: 16.sp, fontFamily: 'Montserrat-semi-bold'),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomTextField(hintText: 'Insérez le prix du votre produit'),
-              const SizedBox(height: 45),
+              SizedBox(height: 45.h),
               Align(
                 child: PrimaryButton(
                   backColor: SwiftColors.purple,
@@ -93,7 +99,7 @@ class _AddProductDetailsState extends State<AddProductDetails> {
                   text: 'Valider',
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

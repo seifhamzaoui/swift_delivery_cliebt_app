@@ -10,6 +10,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:client_app/presentation/auth/login_widget.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgotPasswordPhoneConfirmation extends StatefulWidget {
   const ForgotPasswordPhoneConfirmation({Key? key}) : super(key: key);
@@ -66,11 +67,11 @@ class _ForgotPasswordPhoneConfirmationState extends State<ForgotPasswordPhoneCon
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(30.w),
+                  topRight: Radius.circular(30.w),
                 ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 43, vertical: 20),
+              padding: EdgeInsets.symmetric(horizontal: 43.w, vertical: 20.h),
               height: MediaQuery.of(context).size.height * 0.7,
               child: SingleChildScrollView(
                 child: Column(
@@ -80,21 +81,29 @@ class _ForgotPasswordPhoneConfirmationState extends State<ForgotPasswordPhoneCon
                     SizedBox(height: 20),
                     Text(
                       'UNE DERNIERE ETAPE..',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 22),
+                      style: TextStyle(
+                          fontFamily: 'future-friends', color: SwiftColors.purple, fontSize: 22.sp),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Text(
-                      '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone \n 0665*****''',
-                      style: TextStyle(fontSize: 13),
+                      '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone''',
+                      style: TextStyle(fontSize: 16.sp),
+                    ),
+                    Text(
+                      '0665*****',
+                      style: TextStyle(
+                        color: SwiftColors.orange,
+                        fontSize: 18.sp,
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
                       'Code de confirmation*',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 16),
+                      style: TextStyle(color: SwiftColors.purple, fontSize: 16.sp),
                     ),
                     SizedBox(height: 20),
                     Row(
@@ -122,7 +131,7 @@ class _ForgotPasswordPhoneConfirmationState extends State<ForgotPasswordPhoneCon
                           onPressed: () {},
                           child: Text(
                             'Renvoyer le code',
-                            style: TextStyle(color: SwiftColors.purple),
+                            style: TextStyle(color: SwiftColors.purple, fontSize: 14.sp),
                           ),
                         )
                       ],

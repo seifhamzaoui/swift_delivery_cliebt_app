@@ -29,68 +29,77 @@ class _ChooseMagasinTypeState extends State<ChooseMagasinType> {
         return false;
       }),
       child: Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(child: SizedBox(height: 30)),
-                const SliverToBoxAdapter(
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'CHOISISSEZ L\'ACTIVITE \nDE VOTRE MAGASIN',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 24, color: SwiftColors.purple),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swift-background.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: CustomScrollView(
+                slivers: [
+                  SliverToBoxAdapter(child: SizedBox(height: 30)),
+                  const SliverToBoxAdapter(
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'CHOISISSEZ L\'ACTIVITE \nDE VOTRE MAGASIN',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: 'future-friends', fontSize: 24, color: SwiftColors.purple),
+                      ),
                     ),
                   ),
-                ),
-                SliverToBoxAdapter(child: SizedBox(height: 20)),
-                SliverGrid(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    crossAxisCount: 2,
+                  SliverToBoxAdapter(child: SizedBox(height: 20)),
+                  SliverGrid(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      crossAxisCount: 2,
+                    ),
+                    delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                        return ChooseMarketElement(
+                          scale: 1,
+                          title: magasinCategories[index].title,
+                          iconPath: magasinCategories[index].imagepath,
+                          color: choosed == index ? SwiftColors.orange : Color(0xffF4F0F6),
+                          onPressed: () {
+                            setState(() {
+                              choosed = index;
+                            });
+                          },
+                        );
+                      },
+                      childCount: magasinCategories.length,
+                    ),
                   ),
-                  delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                      return ChooseMarketElement(
-                        scale: 1,
-                        title: magasinCategories[index].title,
-                        iconPath: magasinCategories[index].imagepath,
-                        color: choosed == index ? SwiftColors.orange : Color(0xffF4F0F6),
-                        onPressed: () {
-                          setState(() {
-                            choosed = index;
-                          });
-                        },
-                      );
-                    },
-                    childCount: magasinCategories.length,
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 50,
+                  SliverToBoxAdapter(
+                    child: PrimaryButton(
+                      backColor: SwiftColors.purple,
+                      frontColor: Colors.white,
+                      text: 'Continuer',
+                      onPressed: () {
+                        BlocProvider.of<RegisterBloc>(context)
+                            .add(RegisterEvent.setmagasinType(magasinCategories[choosed]));
+                      },
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: PrimaryButton(
-                    backColor: SwiftColors.purple,
-                    frontColor: Colors.white,
-                    text: 'Continuer',
-                    onPressed: () {
-                      BlocProvider.of<RegisterBloc>(context)
-                          .add(RegisterEvent.setmagasinType(magasinCategories[choosed]));
-                    },
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 50,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

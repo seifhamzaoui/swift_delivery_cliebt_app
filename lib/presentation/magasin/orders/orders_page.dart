@@ -11,6 +11,8 @@ import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OrdersPage extends StatefulWidget {
   const OrdersPage({Key? key}) : super(key: key);
@@ -39,9 +41,7 @@ class _OrdersPageState extends State<OrdersPage> {
                       Icons.arrow_back_ios,
                       color: Colors.black,
                     ),
-                    onPressed: () {
-                      Scaffold.of(context).openDrawer();
-                    },
+                    onPressed: () {},
                   ),
                   Expanded(child: Image.asset('assets/images/logo_small.png')),
                   CustomIconButton(
@@ -50,28 +50,28 @@ class _OrdersPageState extends State<OrdersPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 60),
+              SizedBox(height: 60.h),
               Text(
                 'List des\nCommandes',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: 32.sp,
                   fontFamily: 'montserrat-bold',
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25.h),
               Card(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/icons/money_bills.png',
+                      SvgPicture.asset(
+                        'assets/icons/money_bills.svg',
                         color: SwiftColors.purple,
                       ),
-                      SizedBox(width: 15),
+                      SizedBox(width: 15.w),
                       Text('Total du jour',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             fontFamily: 'montserrat-bold',
                           )),
                       Spacer(),
@@ -79,12 +79,12 @@ class _OrdersPageState extends State<OrdersPage> {
                           style: TextStyle(
                               color: SwiftColors.orange,
                               fontFamily: 'montserrat-bold',
-                              fontSize: 16)),
+                              fontSize: 16.sp)),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Card(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
                 elevation: 5,
@@ -97,7 +97,7 @@ class _OrdersPageState extends State<OrdersPage> {
                     hintText: 'Rechercher..',
                     fillColor: Colors.white),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               MagasinOrdersScreenMenuItem(
                 orderStatus: OrderStatus.COMPLETED,
               ),
@@ -129,15 +129,15 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
     return Card(
       elevation: 2,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 26, vertical: 17),
+        padding: EdgeInsets.symmetric(horizontal: 26.w, vertical: 17.h),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-                  height: 41,
-                  width: 41,
+                  height: 41.w,
+                  width: 41.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
@@ -145,24 +145,25 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 5),
+                SizedBox(width: 10.w),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Hamza',
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(),
-                      ),
-                      Text(
-                        'Bendahmane',
-                        overflow: TextOverflow.ellipsis,
-                      )
+                      Text('Hamza',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                          )),
+                      Text('Bendahmane',
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                          ))
                     ],
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: 10.w),
                 Text(
                   orderStatus == OrderStatus.COMPLETED
                       ? '*Commande Complété*'
@@ -172,7 +173,7 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
                               ? '*Commande Annulé*'
                               : '*En attente de Livraison*',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 14.sp,
                     color: orderStatus == OrderStatus.COMPLETED
                         ? SwiftColors.green
                         : orderStatus == OrderStatus.RES_PENDING
@@ -193,7 +194,7 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
                   return FoodOrderMenuitem();
                 }),
                 separatorBuilder: ((context, index) {
-                  return SizedBox(width: 20);
+                  return SizedBox(width: 20.w);
                 }),
                 itemCount: 3,
               ),
@@ -202,7 +203,7 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(width: 20),
+                SizedBox(width: 20.w),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -211,7 +212,7 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
                       'Total',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         color: SwiftColors.hintGreyColor,
                       ),
                     ),
@@ -219,7 +220,7 @@ class MagasinOrdersScreenMenuItem extends StatelessWidget {
                       '1400 DA',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 21,
+                        fontSize: 21.sp,
                         color: SwiftColors.orange,
                       ),
                     ),

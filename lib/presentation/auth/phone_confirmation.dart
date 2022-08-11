@@ -12,6 +12,7 @@ import 'package:client_app/presentation/auth/login_widget.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PhoneConfirmation extends StatefulWidget {
   const PhoneConfirmation({Key? key}) : super(key: key);
@@ -48,17 +49,17 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
           children: [
             Column(
               children: [
-                SizedBox(
+                Container(
                   height: MediaQuery.of(context).size.height * 0.55,
                   child: Transform.translate(
                     offset: Offset(0, -20),
                     child: Transform.scale(
                       scale: 1.1,
-                      child: Container(
-                        child: Image.asset(
-                          'assets/images/eliptic_preview.png',
-                          fit: BoxFit.fill,
-                        ),
+                      child: Image.asset(
+                        'assets/images/eliptic_preview.png',
+                        fit: BoxFit.fill,
+                        color: Colors.black.withOpacity(0.7),
+                        colorBlendMode: BlendMode.darken,
                       ),
                     ),
                   ),
@@ -87,21 +88,31 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
                       SizedBox(height: 20),
                       Text(
                         'UNE DERNIERE ETAPE..',
-                        style: TextStyle(color: SwiftColors.purple, fontSize: 22),
+                        style: TextStyle(
+                            fontFamily: 'future-friends',
+                            color: SwiftColors.purple,
+                            fontSize: 22.sp),
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       Text(
-                        '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone \n 0665 78 87 73''',
-                        style: TextStyle(fontSize: 13),
+                        '''merci de saisir le code composé de 5 chiffres \ndans les cases ci-dessous pour confirmer \nvotre numéro du téléphone ''',
+                        style: TextStyle(fontSize: 15.sp),
+                      ),
+                      Text(
+                        '0665 78 87 73',
+                        style: TextStyle(
+                          color: SwiftColors.orange,
+                          fontSize: 18.sp,
+                        ),
                       ),
                       SizedBox(
                         height: 15,
                       ),
                       Text(
                         'Code de confirmation*',
-                        style: TextStyle(color: SwiftColors.purple, fontSize: 16),
+                        style: TextStyle(color: SwiftColors.purple, fontSize: 16.sp),
                       ),
                       SizedBox(height: 20),
                       Row(

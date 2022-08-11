@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryProductList extends StatelessWidget {
   const CategoryProductList({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class CategoryProductList extends StatelessWidget {
       backgroundColor: SwiftColors.backGrey,
       body: SafeArea(
           child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
@@ -41,14 +42,14 @@ class CategoryProductList extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 61),
+                        SizedBox(height: 61.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Burger',
                               style: TextStyle(
-                                fontSize: 30,
+                                fontSize: 30.sp,
                                 fontFamily: 'Montserrat-bold',
                               ),
                             ),
@@ -64,7 +65,7 @@ class CategoryProductList extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(width: 10),
+                            SizedBox(width: 10.w),
                             CircleAvatar(
                               backgroundColor: SwiftColors.purple,
                               radius: 27,
@@ -76,14 +77,14 @@ class CategoryProductList extends StatelessWidget {
                                   })));
                                 },
                                 icon: Icon(
-                                  Icons.add,
+                                  Icons.edit,
                                   color: Colors.white,
                                 ),
                               ),
                             )
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         Row(
                           children: [
                             Expanded(
@@ -94,12 +95,13 @@ class CategoryProductList extends StatelessWidget {
                                 icon: Icon(Icons.search),
                               ),
                             ),
+                            SizedBox(width: 20),
                             Expanded(
                                 flex: 3,
                                 child: TextButton.icon(
                                     style: TextButton.styleFrom(
                                         backgroundColor: SwiftColors.purple,
-                                        fixedSize: Size(50, 55)),
+                                        fixedSize: Size(50.w, 55.w)),
                                     onPressed: () {},
                                     icon: Icon(
                                       Icons.add,
@@ -108,21 +110,21 @@ class CategoryProductList extends StatelessWidget {
                                     label: Text(
                                       'Ajouter',
                                       style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontFamily: 'montserrat-bold',
                                         color: Colors.white,
                                       ),
                                     ))),
                           ],
                         ),
-                        const SizedBox(height: 40),
+                        SizedBox(height: 40.h),
                       ],
                     ),
                   ),
                   SliverGrid(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 20.w,
+                      crossAxisSpacing: 20.w,
                       crossAxisCount: 2,
                     ),
                     delegate: SliverChildBuilderDelegate(
@@ -133,7 +135,7 @@ class CategoryProductList extends StatelessWidget {
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: const SizedBox(height: 20),
+                    child: SizedBox(height: 20.h),
                   )
                 ],
               ))),

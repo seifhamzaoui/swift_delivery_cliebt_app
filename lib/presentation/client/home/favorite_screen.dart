@@ -17,7 +17,6 @@ class FavoriteScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: SizedBox(height: 30)),
             const SliverToBoxAdapter(child: CustomTopNavigationBar()),
             SliverToBoxAdapter(child: SizedBox(height: 20)),
             SliverGrid(
@@ -33,6 +32,7 @@ class FavoriteScreen extends StatelessWidget {
                 childCount: 8,
               ),
             ),
+            SliverToBoxAdapter(child: const SizedBox(height: 120))
           ],
         ),
       ),
@@ -103,23 +103,6 @@ class FavoriteGridItem extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-              bottom: 17,
-              right: 17,
-              child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    color: Color(0xff707070),
-                    borderRadius: BorderRadius.circular(9),
-                  ),
-                  child: Icon(
-                    Icons.favorite_outline_rounded,
-                    color: Colors.white,
-                  ),
-                ),
-              )),
           Positioned(
             bottom: 17,
             left: 17,

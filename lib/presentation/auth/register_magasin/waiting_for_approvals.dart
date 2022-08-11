@@ -17,40 +17,49 @@ class WaitingForApprovals extends StatelessWidget {
         return false;
       }),
       child: Scaffold(
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.8,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'UNE DERNIERE ETAPE...',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 24),
-                    ),
-                    const SizedBox(height: 107),
-                    Text(
-                      'Merci pour votre inscription!',
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      'Votre informations sont en cours \nd\'examen. Vous serez averti \nlorsque votre compte sera activé',
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 95),
-                    Image.asset('assets/icons/drawer/purple_circle.png'),
-                  ],
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swift-background.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Align(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.8,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'UNE DERNIERE ETAPE...',
+                        style: TextStyle(
+                            fontFamily: 'future-friends', color: SwiftColors.purple, fontSize: 24),
+                      ),
+                      const SizedBox(height: 107),
+                      Text(
+                        'Merci pour votre inscription!',
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        'Votre informations sont en cours \nd\'examen. Vous serez averti \nlorsque votre compte sera activé',
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 95),
+                      Image.asset('assets/icons/drawer/purple_circle.png'),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        )),
+          )),
+        ),
       ),
     );
   }

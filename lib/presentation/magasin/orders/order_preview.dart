@@ -9,6 +9,7 @@ import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderPreviewPage extends StatefulWidget {
   const OrderPreviewPage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class OrderPreviewPage extends StatefulWidget {
 }
 
 class _OrderPreviewPageState extends State<OrderPreviewPage> {
-  OrderStatus orderStatus = OrderStatus.COMPLETED;
+  OrderStatus orderStatus = OrderStatus.RES_PENDING;
   bool showDialog = false;
   @override
   Widget build(BuildContext context) {
@@ -26,11 +27,11 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
       backgroundColor: SwiftColors.backGrey,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -43,7 +44,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Column(
                   children: [
                     Text(
@@ -52,41 +53,42 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                       style: TextStyle(
                         fontFamily: 'montserrat-bold',
                         color: SwiftColors.purple,
-                        fontSize: 24,
+                        fontSize: 24.sp,
                       ),
                     ),
+                    SizedBox(height: 20.h),
                     if (orderStatus == OrderStatus.RES_PENDING)
                       Card(
-                        elevation: 10,
+                        elevation: 5,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                         child: Padding(
-                          padding: const EdgeInsets.all(15),
+                          padding: EdgeInsets.all(15.w),
                           child: Row(
                             children: [
                               CircleAvatar(
                                 backgroundColor: SwiftColors.orange,
                                 radius: 10,
                               ),
-                              const SizedBox(width: 10),
+                              SizedBox(width: 10.w),
                               Expanded(
-                                child: const Text(
-                                  'Il est préférable de valider la commande avant la préparation du repas afin de permettre au livreur à arriver au temps ',
-                                  overflow: TextOverflow.clip,
-                                ),
+                                child: Text(
+                                    'Il est préférable de valider la commande avant la préparation du repas afin de permettre au livreur à arriver au temps ',
+                                    overflow: TextOverflow.clip,
+                                    style: TextStyle(fontSize: 14.sp)),
                               ),
                             ],
                           ),
                         ),
                       ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Card(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
                       elevation: 8,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 31),
+                        padding: EdgeInsets.symmetric(vertical: 19.h, horizontal: 31.w),
                         child: Column(
                           children: [
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -94,7 +96,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   'Repas',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 14.sp,
                                     color: SwiftColors.hintGreyColor,
                                   ),
                                 ),
@@ -102,13 +104,13 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   '1200 DA',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 12,
+                                    fontSize: 14.sp,
                                     color: SwiftColors.orange,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -116,7 +118,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   'N° du commande',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12,
+                                    fontSize: 14.sp,
                                     color: SwiftColors.hintGreyColor,
                                   ),
                                 ),
@@ -124,19 +126,19 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   'C6754358744535',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 12,
+                                    fontSize: 14.sp,
                                     color: SwiftColors.orange,
                                   ),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 29),
+                            SizedBox(height: 29.h),
                             if (orderStatus == OrderStatus.COMPLETED) OrderCompletedIcon(),
                             if (orderStatus == OrderStatus.LIV_PENDING)
                               OrderPending(orderStatus: orderStatus),
                             if (orderStatus == OrderStatus.RES_PENDING)
                               OrderPending(orderStatus: orderStatus),
-                            const SizedBox(height: 56.8),
+                            SizedBox(height: 56.8.h),
                             Divider(),
                             SizedBox(
                               height: 140,
@@ -146,7 +148,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   return FoodOrderMenuitem();
                                 }),
                                 separatorBuilder: ((context, index) {
-                                  return SizedBox(width: 20);
+                                  return SizedBox(width: 20.w);
                                 }),
                                 itemCount: 3,
                               ),
@@ -159,7 +161,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   'Total',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     color: Colors.grey,
                                   ),
                                 ),
@@ -168,7 +170,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                                   '1400 Da',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 25,
+                                    fontSize: 25.sp,
                                     color: SwiftColors.orange,
                                   ),
                                 ),
@@ -180,7 +182,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 58),
+                SizedBox(height: 58.h),
                 if (orderStatus == OrderStatus.RES_PENDING)
                   PrimaryButton(
                     backColor: SwiftColors.purple,
@@ -188,7 +190,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                     onPressed: () {},
                     text: 'Valider la commande',
                   ),
-                const SizedBox(height: 20),
+                SizedBox(height: 20.h),
               ],
             ),
           ),

@@ -9,6 +9,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:client_app/presentation/client/Drawer/swift_drawer.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/Custon_top_navigation_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MagasinMainScreen extends StatelessWidget {
   const MagasinMainScreen({Key? key}) : super(key: key);
@@ -19,66 +21,67 @@ class MagasinMainScreen extends StatelessWidget {
       drawer: SwiftDrawer(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomTopNavigationBar(),
-                const SizedBox(height: 30),
+                SizedBox(height: 30.h),
                 Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        const Text(
+                      children: [
+                        Text(
                           'Bonjour',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 30,
+                            fontSize: 30.sp,
                           ),
                         ),
-                        const SizedBox(height: 3),
-                        const Text(
+                        SizedBox(height: 3.h),
+                        Text(
                           'Hamza',
                           style: TextStyle(
                             color: SwiftColors.purple,
                             fontFamily: 'Montserrat-semi-bold',
-                            fontSize: 30,
+                            fontSize: 30.sp,
                           ),
                         )
                       ],
                     ),
                     Spacer(),
                     Container(
-                      height: 45,
-                      width: 45,
+                      height: 45.w,
+                      width: 45.w,
                       decoration: BoxDecoration(
                         image: DecorationImage(image: AssetImage('assets/images/denys.png')),
                         shape: BoxShape.circle,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 10.w),
                     // titre et type de magasin
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        const Text(
+                      children: [
+                        Text(
                           'Denny\'s',
-                          style: TextStyle(color: SwiftColors.purple),
+                          style: TextStyle(fontSize: 14.sp, color: SwiftColors.purple),
                         ),
                         const SizedBox(height: 3),
-                        const Text(
+                        Text(
                           'Fast Food',
-                          style: TextStyle(color: SwiftColors.orange),
+                          style: TextStyle(fontSize: 14.sp, color: SwiftColors.orange),
                         )
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
-                Text('Informations', style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 35),
+                SizedBox(height: 50.h),
+                Text('Informations',
+                    style: TextStyle(fontSize: 21.sp, fontWeight: FontWeight.bold)),
+                SizedBox(height: 35.h),
                 Row(
                   children: [
                     Expanded(
@@ -88,7 +91,7 @@ class MagasinMainScreen extends StatelessWidget {
                         value: '5',
                       ),
                     ),
-                    const SizedBox(width: 25),
+                    SizedBox(width: 25.w),
                     Expanded(
                       child: InformationsContainer(
                         color: SwiftColors.blue,
@@ -98,7 +101,7 @@ class MagasinMainScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(height: 25),
+                SizedBox(height: 25.h),
                 Row(
                   children: [
                     Expanded(
@@ -110,12 +113,13 @@ class MagasinMainScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 Text('Paramètres du compte',
-                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 40),
+                    style: TextStyle(fontSize: 21.sp, fontWeight: FontWeight.bold)),
+                SizedBox(height: 40.h),
                 Container(
-                  height: 360,
+                  height: 360.h,
+                  width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -123,7 +127,10 @@ class MagasinMainScreen extends StatelessWidget {
                         children: [
                           Expanded(
                               child: ParametereContainer(
-                            icon: Image.asset('assets/icons/shooping_bag.png'),
+                            icon: SvgPicture.asset(
+                              'assets/icons/commande.svg',
+                              color: Colors.white,
+                            ),
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(builder: ((context) {
                                 return OrdersPage();
@@ -131,10 +138,13 @@ class MagasinMainScreen extends StatelessWidget {
                             },
                             title: 'Liste des\nCommandes',
                           )),
-                          const SizedBox(height: 30),
+                          SizedBox(height: 30.h),
                           Expanded(
                               child: ParametereContainer(
-                            icon: Image.asset('assets/icons/product_list.png'),
+                            icon: SvgPicture.asset(
+                              'assets/icons/product_list.svg',
+                              color: Colors.white,
+                            ),
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(builder: ((context) {
                                 return ProductsList();
@@ -144,18 +154,20 @@ class MagasinMainScreen extends StatelessWidget {
                           )),
                         ],
                       ),
-                      SizedBox(width: 25),
+                      SizedBox(width: 25.w),
                       Column(
                         children: [
                           Expanded(
                             child: ParametereContainer(
-                              icon: Image.asset(
-                                'assets/icons/settings.png',
+                              icon: SvgPicture.asset(
+                                'assets/icons/settings.svg',
                                 color: Colors.white,
                               ),
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                                  return Settings();
+                                  return Settings(
+                                    isMagasin: true,
+                                  );
                                 })));
                               },
                               title: 'Paramètres',
@@ -166,7 +178,7 @@ class MagasinMainScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
               ],
             ),
           ),
@@ -195,11 +207,11 @@ class ParametereContainer extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width * 0.38,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(15.w),
           color: SwiftColors.purple,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 25, top: 21, bottom: 20),
+          padding: EdgeInsets.only(left: 25.w, top: 21.h, bottom: 20.h),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -209,7 +221,7 @@ class ParametereContainer extends StatelessWidget {
                 title,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 15,
+                  fontSize: 15.sp,
                   fontFamily: 'Montserrat-semi-bold',
                 ),
               ),
@@ -234,13 +246,13 @@ class InformationsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 170,
+      height: 170.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(15.w),
         color: color,
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 40),
+        padding: EdgeInsets.only(left: 40.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -248,12 +260,12 @@ class InformationsContainer extends StatelessWidget {
             Text(value,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 60,
+                  fontSize: 60.sp,
                 )),
             Text(title,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 13,
+                  fontSize: 13.sp,
                   fontFamily: 'Montserrat-semi-bold',
                 )),
           ],

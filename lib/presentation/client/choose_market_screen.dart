@@ -6,6 +6,7 @@ import 'package:client_app/presentation/core/market_grid_element.dart';
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChoosemarketScreen extends StatelessWidget {
   const ChoosemarketScreen({Key? key}) : super(key: key);
@@ -18,21 +19,22 @@ class ChoosemarketScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(child: SizedBox(height: 30)),
-              const SliverToBoxAdapter(
+              SliverToBoxAdapter(child: SizedBox(height: 30.h)),
+              SliverToBoxAdapter(
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
                     'CHOISISSEZ LE PRODUIT\nQUE VOUS VOULEZ',
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 24, color: SwiftColors.purple),
+                    style: TextStyle(
+                        fontFamily: 'future-friends', fontSize: 24.sp, color: SwiftColors.purple),
                   ),
                 ),
               ),
-              SliverToBoxAdapter(child: SizedBox(height: 20)),
+              SliverToBoxAdapter(child: SizedBox(height: 20.h)),
               SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisSpacing: 10,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 10.h,
                   crossAxisSpacing: 0,
                   crossAxisCount: 2,
                 ),

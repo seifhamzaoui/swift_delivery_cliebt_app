@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductsList extends StatelessWidget {
   const ProductsList({Key? key}) : super(key: key);
@@ -42,14 +43,14 @@ class ProductsList extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 61),
+                        SizedBox(height: 61.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Liste des \nProduits',
                               style: TextStyle(
-                                fontSize: 30,
+                                fontSize: 30.sp,
                                 fontFamily: 'Montserrat-bold',
                               ),
                             ),
@@ -71,13 +72,13 @@ class ProductsList extends StatelessWidget {
                             )
                           ],
                         ),
-                        const SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         CustomTextField(
                           hintText: 'Recherche',
                           fillColor: Colors.white,
                           icon: Icon(Icons.search),
                         ),
-                        const SizedBox(height: 40),
+                        SizedBox(height: 40.h),
                       ],
                     ),
                   ),
@@ -102,7 +103,7 @@ class ProductsList extends StatelessWidget {
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: const SizedBox(height: 20),
+                    child: SizedBox(height: 20.h),
                   )
                 ],
               ))),
@@ -123,23 +124,23 @@ class CategoryProductListItem extends StatelessWidget {
         onPressed();
       },
       child: Container(
-        height: 162,
-        width: 162,
+        height: 162.w,
+        width: 162.w,
         decoration: BoxDecoration(
           color: SwiftColors.orange,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(10.w),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               'assets/icons/menu_items/burger.png',
-              scale: 0.6,
+              scale: 0.7.sp,
             ),
-            const SizedBox(height: 17),
+            SizedBox(height: 17.h),
             Text(
               'burger',
-              style: TextStyle(color: Colors.white, fontFamily: 'Montserrat-bold', fontSize: 18),
+              style: TextStyle(color: Colors.white, fontFamily: 'Montserrat-bold', fontSize: 18.sp),
             )
           ],
         ),
@@ -195,8 +196,8 @@ class ProductItemInProductList extends StatelessWidget {
               top: 12,
               left: 12,
               child: Container(
-                height: 30,
-                width: 110,
+                height: 30.h,
+                width: 110.w,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7),
@@ -208,7 +209,7 @@ class ProductItemInProductList extends StatelessWidget {
                       'Epuisé',
                       style: TextStyle(
                           overflow: TextOverflow.ellipsis,
-                          fontSize: 11,
+                          fontSize: 13.sp,
                           fontFamily: 'montserrat-bold'),
                     ),
                     Checkbox(
@@ -235,7 +236,7 @@ class ProductItemInProductList extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.white,
                     overflow: TextOverflow.ellipsis,
-                    fontSize: 12,
+                    fontSize: 14.sp,
                     fontFamily: 'montserrat-bold'),
               ),
             )

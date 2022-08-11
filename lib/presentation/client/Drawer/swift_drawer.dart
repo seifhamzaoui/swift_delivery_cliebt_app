@@ -1,10 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:client_app/presentation/client/Drawer/devenir_livreur.dart';
 import 'package:client_app/presentation/client/Drawer/info_page.dart';
+import 'package:client_app/presentation/client/Drawer/signaler_probleme.dart';
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SwiftDrawer extends StatelessWidget {
   const SwiftDrawer({Key? key}) : super(key: key);
@@ -15,7 +18,7 @@ class SwiftDrawer extends StatelessWidget {
       child: Container(
         color: SwiftColors.purple,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50.h),
           child: Column(
             children: [
               Row(
@@ -37,16 +40,16 @@ class SwiftDrawer extends StatelessWidget {
                   SizedBox(width: 30)
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 50.h),
               DrawerMenuItem(
-                icon: Image.asset('assets/icons/drawer/livraison.png'),
+                icon: SvgPicture.asset('assets/icons/drawer/livraison.svg'),
                 title: 'Devenir un livreur',
                 onPressed: () {
                   Navigator.push(
                       context, MaterialPageRoute(builder: ((context) => DevenirLivreur())));
                 },
               ),
-              const SizedBox(height: 23),
+              SizedBox(height: 23.h),
               DrawerMenuItem(
                 icon: Image.asset('assets/icons/drawer/info.png'),
                 title: 'Informations sur l\'Application',
@@ -54,21 +57,26 @@ class SwiftDrawer extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: ((context) => InfoPage())));
                 },
               ),
-              const SizedBox(height: 23),
+              SizedBox(height: 23.h),
               DrawerMenuItem(
-                icon: Image.asset('assets/icons/drawer/star.png'),
+                icon: SvgPicture.asset('assets/icons/drawer/star.svg'),
                 title: 'Evaluer l\'Application',
                 onPressed: () {},
               ),
-              const SizedBox(height: 23),
+              SizedBox(height: 23.h),
               DrawerMenuItem(
-                icon: Image.asset('assets/icons/drawer/Call Center.png'),
+                icon: SvgPicture.asset(
+                  'assets/icons/drawer/Call Center.svg',
+                ),
                 title: 'Signaler un probleme',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: ((context) => SignalerProblem())));
+                },
               ),
-              const SizedBox(height: 23),
+              SizedBox(height: 23.h),
               DrawerMenuItem(
-                icon: Image.asset('assets/icons/drawer/earrth.png'),
+                icon: SvgPicture.asset('assets/icons/drawer/earrth.svg'),
                 title: 'Français',
                 onPressed: () {},
               ),
@@ -97,7 +105,7 @@ class DrawerMenuItem extends StatelessWidget {
         onPressed();
       },
       child: Container(
-        height: 65,
+        height: 65.h,
         decoration: BoxDecoration(
           color: SwiftColors.lightPurple,
           borderRadius: BorderRadius.circular(13),
@@ -110,7 +118,7 @@ class DrawerMenuItem extends StatelessWidget {
               SizedBox(width: 22),
               Text(
                 title,
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14.sp),
               ),
             ],
           ),

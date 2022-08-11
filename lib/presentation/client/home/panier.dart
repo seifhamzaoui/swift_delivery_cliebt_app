@@ -2,6 +2,8 @@ import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Panier extends StatelessWidget {
   const Panier({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class Panier extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -29,7 +31,7 @@ class Panier extends StatelessWidget {
                         child: Text(
                       'Panier',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16, color: SwiftColors.purple),
+                      style: TextStyle(fontSize: 20.sp, color: SwiftColors.purple),
                     )),
                     CustomIconButton(
                       icon: Image.asset('assets/icons/notification.png'),
@@ -37,27 +39,27 @@ class Panier extends StatelessWidget {
                     ),
                   ],
                 ),
-                ...List.generate(3, (index) => [PanierElement(), SizedBox(height: 10)])
+                ...List.generate(3, (index) => [PanierElement(), SizedBox(height: 10.h)])
                     .expand((element) => element)
                     .toList(),
                 Card(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 19, horizontal: 26),
+                    padding: EdgeInsets.symmetric(vertical: 19.h, horizontal: 26.w),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset('assets/icons/livraison_big.png'),
+                        SvgPicture.asset('assets/icons/livraison_big.svg'),
                         SizedBox(width: 22.5),
                         Text(
                           'Livraison',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp),
                         ),
                         Spacer(),
                         Text(
                           '200 DA',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                            fontSize: 16.sp,
                             color: SwiftColors.orange,
                           ),
                         ),
@@ -66,12 +68,12 @@ class Panier extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,7 +82,7 @@ class Panier extends StatelessWidget {
                           'Total',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 13,
+                            fontSize: 13.sp,
                             color: SwiftColors.hintGreyColor,
                           ),
                         ),
@@ -88,7 +90,7 @@ class Panier extends StatelessWidget {
                           '1400 DA',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 21,
+                            fontSize: 21.sp,
                             color: SwiftColors.orange,
                           ),
                         ),
@@ -106,7 +108,7 @@ class Panier extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 50)
+                const SizedBox(height: 120)
               ],
             ),
           ),
@@ -125,7 +127,7 @@ class PanierElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 24),
+        padding: EdgeInsets.symmetric(vertical: 24.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -142,10 +144,10 @@ class PanierElement extends StatelessWidget {
                 )),
             // product image
             Container(
-              height: 80,
-              width: 88,
+              height: 80.w,
+              width: 88.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(9),
+                  borderRadius: BorderRadius.circular(9.w),
                   image: DecorationImage(image: AssetImage('assets/images/pizaa.png'))),
             ),
             // product Info
@@ -156,21 +158,21 @@ class PanierElement extends StatelessWidget {
                 Text('Denny\'s ',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 10,
+                      fontSize: 10.sp,
                       color: SwiftColors.purple,
                     )),
                 const SizedBox(height: 5),
                 Text('Pizza Poolet',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                     )),
                 const SizedBox(height: 5),
                 Text(
                   '400 DA',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     color: SwiftColors.orange,
                   ),
                 ),
@@ -186,7 +188,7 @@ class PanierElement extends StatelessWidget {
                   child: Center(
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.add, size: 15),
+                      icon: Icon(Icons.add, size: 15.sp),
                     ),
                   ),
                 ),

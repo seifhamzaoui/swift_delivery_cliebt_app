@@ -10,165 +10,179 @@ import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:client_app/presentation/welcome_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  bool showpassword = false;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: SwiftColors.purple,
       body: SafeArea(
-        child: Positioned(
-          bottom: 0,
-          child: Container(
-            decoration: BoxDecoration(color: Colors.white),
-            padding: EdgeInsets.symmetric(horizontal: 43, vertical: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(alignment: Alignment.center, child: GreySeparator()),
-                  SizedBox(height: 20),
-                  Text('INSCRIVEZ-VOUS',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: SwiftColors.purple,
-                      )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Créez un nouveau compte d\'utilisateur',
-                    style: TextStyle(fontSize: 14),
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Text(
-                    'Nom et prenom*',
-                    style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
+        child: Container(
+          decoration: BoxDecoration(color: Colors.white),
+          padding: EdgeInsets.symmetric(horizontal: 43.w, vertical: 30.h),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(alignment: Alignment.center, child: GreySeparator()),
+                SizedBox(height: 20.h),
+                Text('INSCRIVEZ-VOUS',
+                    style: TextStyle(
+                      fontFamily: 'future-friends',
+                      fontWeight: FontWeight.w100,
+                      fontSize: 24.sp,
+                      color: SwiftColors.purple,
+                    )),
+                SizedBox(
+                  height: 10.h,
+                ),
+                Text(
+                  'Créez un nouveau compte d\'utilisateur',
+                  style: TextStyle(fontSize: 14.sp),
+                ),
+                SizedBox(
+                  height: 40.h,
+                ),
+                Text(
+                  'Nom et prenom*',
+                  style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomTextField(
+                        hintText: 'Nom',
+                        icon: SvgPicture.asset('assets/icons/person.svg'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20.w,
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        hintText: 'Prénom',
+                        icon: SvgPicture.asset('assets/icons/person.svg'),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Material(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: CustomTextField(
-                          hintText: 'Nom',
-                          icon: Image.asset('assets/icons/person.png'),
+                      Text(
+                        'Nom d\'utilisateur*',
+                        style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      CustomTextField(
+                        hintText: 'Insérez votre nom d\'utilisateur',
+                        icon: SvgPicture.asset('assets/icons/person.svg'),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'Numéro du Téléphone*',
+                  style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                CustomTextField(
+                  hintText: 'Insérez votre téléphone',
+                  icon: SvgPicture.asset('assets/icons/phone.svg'),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Material(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Mot de passe*',
+                        style: TextStyle(color: Color(0xff4D0060), fontSize: 16.sp),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      CustomTextField(
+                        obscureText: showpassword,
+                        hintText: 'Insérez votre mot de passe',
+                        icon: SvgPicture.asset('assets/icons/lock.svg'),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showpassword = !showpassword;
+                            });
+                          },
+                          icon: Icon(
+                            showpassword ? Icons.visibility : Icons.visibility_off,
+                            color: SwiftColors.purple,
+                          ),
                         ),
                       ),
                       SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: CustomTextField(
-                          hintText: 'Prénom',
-                          icon: Image.asset('assets/icons/person.png'),
-                        ),
+                        height: 20.h,
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Hero(
-                      tag: 'username',
-                      child: Material(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Nom d\'utilisateur*',
-                              style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            CustomTextField(
-                              hintText: 'Insérez votre nom d\'utilisateur',
-                              icon: Image.asset('assets/icons/person.png'),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                          ],
-                        ),
-                      )),
-                  Text(
-                    'Numéro du Téléphone*',
-                    style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  CustomTextField(
-                    hintText: 'Insérez votre téléphone',
-                    icon: Image.asset('assets/icons/phone.png'),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Hero(
-                      tag: 'password',
-                      child: Material(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Mot de passe*',
-                              style: TextStyle(color: Color(0xff4D0060), fontSize: 16),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            CustomTextField(
-                              obscureText: true,
-                              hintText: 'Insérez votre mot de passe',
-                              icon: Image.asset('assets/icons/lock.png'),
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                          ],
-                        ),
-                      )),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  PrimaryButton(
-                    backColor: SwiftColors.purple,
-                    frontColor: Colors.white,
-                    onPressed: () {
-                      BlocProvider.of<RegisterBloc>(context).add(RegisterEvent.validateinfo());
-                    },
-                    text: 'Inscrivez-vous',
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const Text(
-                        'Vous avez déjà un compte?',
-                        style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13),
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                PrimaryButton(
+                  backColor: SwiftColors.purple,
+                  frontColor: Colors.white,
+                  onPressed: () {
+                    BlocProvider.of<RegisterBloc>(context).add(RegisterEvent.validateinfo());
+                  },
+                  text: 'Inscrivez-vous',
+                ),
+                SizedBox(height: 10.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      'Vous avez déjà un compte?',
+                      style: TextStyle(color: SwiftColors.hintGreyColor, fontSize: 13.sp),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text(
+                        'Connectez-Vous',
+                        style: TextStyle(color: SwiftColors.purple, fontSize: 13.sp),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text(
-                          'Connectez-Vous',
-                          style: TextStyle(color: SwiftColors.purple, fontSize: 13),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

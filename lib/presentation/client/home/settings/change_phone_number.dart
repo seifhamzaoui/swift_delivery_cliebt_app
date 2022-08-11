@@ -17,66 +17,75 @@ class _ChangePhoneNumberState extends State<ChangePhoneNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  CustomIconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                ],
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'CHANGER LE \nNUMERO \nDE TELEPHONE'.toUpperCase(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: SwiftColors.purple,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 77),
-              Text('Numéro de téléphone actuel*'),
-              const SizedBox(height: 17),
-              CustomTextField(
-                hintText: 'Numéro de téléphone actuel',
-                obscureText: true,
-              ),
-              const SizedBox(height: 35),
-              Text('Nouveau numéro de téléphone*'),
-              const SizedBox(height: 17),
-              CustomTextField(
-                hintText: 'Nouveau numéro de téléphone',
-              ),
-              SizedBox(
-                height: 80,
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: PrimaryButton(
-                  backColor: SwiftColors.purple,
-                  frontColor: Colors.white,
-                  onPressed: () {},
-                  text: 'Continuer',
-                ),
-              )
-            ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/swift-background.png'),
+            fit: BoxFit.fill,
           ),
         ),
-      )),
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CustomIconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.black,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'CHANGER LE \nNUMERO \nDE TELEPHONE'.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'future-friends',
+                      fontSize: 24,
+                      color: SwiftColors.purple,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 77),
+                Text('Numéro de téléphone actuel*'),
+                const SizedBox(height: 17),
+                CustomTextField(
+                  hintText: 'Numéro de téléphone actuel',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 35),
+                Text('Nouveau numéro de téléphone*'),
+                const SizedBox(height: 17),
+                CustomTextField(
+                  hintText: 'Nouveau numéro de téléphone',
+                ),
+                SizedBox(
+                  height: 80,
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: PrimaryButton(
+                    backColor: SwiftColors.purple,
+                    frontColor: Colors.white,
+                    onPressed: () {},
+                    text: 'Continuer',
+                  ),
+                )
+              ],
+            ),
+          ),
+        )),
+      ),
     );
   }
 }

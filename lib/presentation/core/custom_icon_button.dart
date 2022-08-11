@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomIconButton extends StatelessWidget {
   CustomIconButton({
@@ -16,7 +17,7 @@ class CustomIconButton extends StatelessWidget {
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
         backgroundColor: MaterialStateProperty.all(backColor ?? Colors.white),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 0, vertical: 15)),
+        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 0, vertical: 15.h)),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(9),
@@ -24,7 +25,7 @@ class CustomIconButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: icon,
+      child: Center(child: icon),
     );
   }
 }

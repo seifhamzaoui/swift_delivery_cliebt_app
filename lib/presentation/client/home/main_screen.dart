@@ -9,6 +9,7 @@ import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/market_pageView_element.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({
@@ -21,7 +22,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final PageController _controller = PageController(viewportFraction: 0.7);
+  final PageController _controller = PageController(viewportFraction: 0.99);
   double _page = 0;
   @override
   void initState() {
@@ -35,22 +36,23 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
             children: [
               CustomTopNavigationBar(),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomTextField(
                 hintText: 'Trouvez votre restaurant….',
                 fillColor: Colors.white,
                 icon: Image.asset('assets/icons/search.png'),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               SizedBox(
-                height: 250,
+                height: 250.w,
                 child: PageView(
                   scrollDirection: Axis.horizontal,
                   controller: _controller,
@@ -58,7 +60,9 @@ class _MainScreenState extends State<MainScreen> {
                     return Align(
                       alignment: Alignment.centerLeft,
                       child: Transform(
-                        transform: Matrix4.identity()..scale(exp(-0.1 * (_page - index).abs())),
+                        transform: Matrix4.identity()
+                          ..scale(exp(-0.05 * (_page - index).abs()))
+                          ..translate((-80 * (_page - index).abs()).w),
                         child: MarketPageViewElement(
                           onPressed: () async {
                             dynamic result = await Navigator.of(context).push(MaterialPageRoute(
@@ -79,6 +83,7 @@ class _MainScreenState extends State<MainScreen> {
                   }),
                 ),
               ),
+              const SizedBox(height: 120),
             ],
           ),
         ),

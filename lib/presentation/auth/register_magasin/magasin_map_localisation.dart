@@ -2,6 +2,7 @@
 import 'package:client_app/application/location/location_bloc.dart';
 import 'package:client_app/presentation/auth/register_magasin/choose_account_type.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
+import 'package:client_app/presentation/magasin/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
@@ -40,91 +41,108 @@ class _MagasinMapLocalisationState extends State<MagasinMapLocalisation> {
         return false;
       }),
       child: Scaffold(
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 56),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.9,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'LOCALISATION DU VOTRE MAGASIN',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: SwiftColors.purple, fontSize: 24),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swift-background.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 56),
+            child: Align(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'LOCALISATION DU VOTRE MAGASIN',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'future-friends',
+                              color: SwiftColors.purple,
+                              fontSize: 24),
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 450,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(27),
+                      const SizedBox(height: 10),
+                      Container(
+                        height: 450,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(27),
+                        ),
+                        child: BlocConsumer<LocationBloc, LocationState>(
+                          listener: (c, state) {},
+                          builder: (context, state) {
+                            return GoogleMap(
+                              zoomControlsEnabled: false,
+                              zoomGesturesEnabled: true,
+                              markers: markers,
+                              mapType: MapType.normal,
+                              initialCameraPosition: _kGooglePlex,
+                              myLocationButtonEnabled: true,
+                              myLocationEnabled: true,
+                              onMapCreated: (GoogleMapController controller) {
+                                mapController = controller;
+                                context.read<LocationBloc>().state.maybeMap(
+                                      orElse: () {},
+                                      positionlocated: (s) async {
+                                        mapController.animateCamera(CameraUpdate.newCameraPosition(
+                                            CameraPosition(target: s.adress.position, zoom: 14)));
+                                        // markers.add(Marker(
+                                        //   markerId: MarkerId('marker'),
+                                        //   position: s.adress.position,
+                                        // ));
+                                      },
+                                    );
+                              },
+                              onTap: (latlng) {
+                                setState(() {
+                                  markers = {};
+                                  markers.add(Marker(
+                                    markerId: MarkerId('${latlng.latitude}${latlng.longitude}'),
+                                    position: latlng,
+                                    draggable: true,
+                                  ));
+                                });
+                              },
+                            );
+                          },
+                        ),
                       ),
-                      child: BlocConsumer<LocationBloc, LocationState>(
-                        listener: (c, state) {},
-                        builder: (context, state) {
-                          return GoogleMap(
-                            markers: markers,
-                            mapType: MapType.normal,
-                            initialCameraPosition: _kGooglePlex,
-                            myLocationButtonEnabled: true,
-                            myLocationEnabled: true,
-                            onMapCreated: (GoogleMapController controller) {
-                              mapController = controller;
-                              context.read<LocationBloc>().state.maybeMap(
-                                    orElse: () {},
-                                    positionlocated: (s) async {
-                                      mapController.animateCamera(CameraUpdate.newCameraPosition(
-                                          CameraPosition(target: s.adress.position, zoom: 14)));
-                                      // markers.add(Marker(
-                                      //   markerId: MarkerId('marker'),
-                                      //   position: s.adress.position,
-                                      // ));
-                                    },
-                                  );
-                            },
-                            onLongPress: (latlng) {
-                              setState(() {
-                                markers = {};
-                                markers.add(Marker(
-                                  markerId: MarkerId('${latlng.latitude}${latlng.longitude}'),
-                                  position: latlng,
-                                  draggable: true,
-                                ));
-                              });
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: PrimaryButton(
-                        backColor: SwiftColors.purple,
-                        frontColor: Colors.white,
-                        onPressed: () {
-                          if (markers.isNotEmpty) {
-                            BlocProvider.of<RegisterBloc>(context).add(
-                                RegisterEvent.setMagasinlocation(postion: markers.first.position));
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('Veuillez choisir une position')));
-                          }
-                        },
-                        text: 'Continuer',
-                      ),
-                    )
-                  ],
+                      const SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.center,
+                        child: PrimaryButton(
+                          backColor: SwiftColors.purple,
+                          frontColor: Colors.white,
+                          onPressed: () {
+                            if (markers.isNotEmpty) {
+                              // BlocProvider.of<RegisterBloc>(context).add(
+                              //     RegisterEvent.setMagasinlocation(postion: markers.first.position));
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(builder: ((context) => MagasinMainScreen())));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Veuillez choisir une position')));
+                            }
+                          },
+                          text: 'Continuer',
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        )),
+          )),
+        ),
       ),
     );
   }

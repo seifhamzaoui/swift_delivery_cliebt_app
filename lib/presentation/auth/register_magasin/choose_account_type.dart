@@ -6,6 +6,8 @@ import 'package:client_app/application/auth/register_bloc/register_bloc.dart';
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/constants/enums.dart';
 import 'package:client_app/presentation/core/primary_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ChooseAccountType extends StatefulWidget {
   const ChooseAccountType({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class ChooseAccountType extends StatefulWidget {
 
 class _ChooseAccountTypeState extends State<ChooseAccountType> {
   List accountTypes = [AccountTypes.client, AccountTypes.magazin];
-  List iconPaths = ['assets/icons/person.png', 'assets/icons/market.png'];
+  List iconPaths = ['assets/icons/person_round.svg', 'assets/icons/market_big.svg'];
   List titles = ['Compte Client', 'Compte Magasin'];
   int choosed = 0;
   @override
@@ -27,47 +29,60 @@ class _ChooseAccountTypeState extends State<ChooseAccountType> {
         return false;
       }),
       child: Scaffold(
-        body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Align(
-            alignment: Alignment.center,
-            child: SingleChildScrollView(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'CHOISISSEZ LE TYPE DE\nVOTRE COMPTE',
-                      style: TextStyle(color: SwiftColors.purple, fontSize: 24),
-                    ),
-                    ...List.generate(
-                      accountTypes.length,
-                      (index) => ChooseMarketElement(
-                        iconPath: iconPaths[index],
-                        title: titles[index],
-                        color: choosed == index ? SwiftColors.orange : Color(0xffF4F0F6),
-                        onPressed: () => setState(() {
-                          choosed = index;
-                        }),
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/swift-background.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
+          child: SafeArea(
+              child: Padding(
+            padding: EdgeInsets.all(20.w),
+            child: Align(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height.h,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'CHOISISSEZ LE TYPE DE\nVOTRE COMPTE',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: 'future-friends',
+                            color: SwiftColors.purple,
+                            fontSize: 24.sp),
                       ),
-                    ),
-                    PrimaryButton(
-                        backColor: SwiftColors.purple,
-                        frontColor: Colors.white,
-                        onPressed: () {
-                          BlocProvider.of<RegisterBloc>(context)
-                              .add(RegisterEvent.setAccountType(accountTypes[choosed]));
-                        },
-                        text: 'Continuer')
-                  ],
+                      ...List.generate(
+                        accountTypes.length,
+                        (index) => ChooseMarketElement(
+                          scale: 0.8,
+                          iconPath: iconPaths[index],
+                          title: titles[index],
+                          color: choosed == index ? SwiftColors.orange : Color(0xffF4F0F6),
+                          onPressed: () => setState(() {
+                            choosed = index;
+                          }),
+                        ),
+                      ),
+                      PrimaryButton(
+                          backColor: SwiftColors.purple,
+                          frontColor: Colors.white,
+                          onPressed: () {
+                            BlocProvider.of<RegisterBloc>(context)
+                                .add(RegisterEvent.setAccountType(accountTypes[choosed]));
+                          },
+                          text: 'Continuer')
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        )),
+          )),
+        ),
       ),
     );
   }
@@ -94,28 +109,27 @@ class ChooseMarketElement extends StatelessWidget {
         GestureDetector(
           onTap: onPressed,
           child: Container(
-            height: 130,
-            width: 130,
+            height: 130.w,
+            width: 130.w,
             decoration: BoxDecoration(
               color: color,
-              borderRadius: BorderRadius.circular(65),
+              borderRadius: BorderRadius.circular(65.w),
             ),
             child: Center(
-              child: Image.asset(
+              child: SvgPicture.asset(
                 iconPath,
-                scale: scale ?? 0.5,
-                color: color == SwiftColors.orange ? Colors.white : SwiftColors.orange,
+                color: color == SwiftColors.orange ? Colors.white : Color(0xff707070),
               ),
             ),
           ),
         ),
-        SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Text(
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: 16.sp,
           ),
         ),
       ],

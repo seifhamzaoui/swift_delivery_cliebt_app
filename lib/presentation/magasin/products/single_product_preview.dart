@@ -5,6 +5,7 @@ import 'package:client_app/presentation/core/primary_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SingleProductPreview extends StatefulWidget {
   const SingleProductPreview({Key? key}) : super(key: key);
@@ -33,26 +34,26 @@ class _SingleProductPreviewState extends State<SingleProductPreview> {
       },
       child: Scaffold(
         bottomNavigationBar: Container(
-          height: showAllPanel ? 170 : 90,
+          height: showAllPanel ? 160 : 90,
           decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
                 const BoxShadow(color: Colors.black, blurRadius: 1, spreadRadius: 0),
               ],
-              borderRadius: !showAllPanel ? null : BorderRadius.vertical(top: Radius.circular(30))),
+              borderRadius: !showAllPanel ? null : BorderRadius.vertical(top: Radius.circular(5))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               /// separator gris
               if (showAllPanel) ...[
-                const SizedBox(height: 10),
+                SizedBox(height: 20.h),
                 const GreySeparator(),
-                SizedBox(height: 10),
+                SizedBox(height: 20.h),
                 // Combien?
 
                 Text('Etes Vous sur de supprimer le produit?',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                const SizedBox(height: 40),
+                    style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700)),
+                SizedBox(height: 40.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -61,22 +62,22 @@ class _SingleProductPreviewState extends State<SingleProductPreview> {
                       style: TextButton.styleFrom(
                           primary: SwiftColors.purple,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(16.w),
                             side: BorderSide(color: SwiftColors.purple, width: 2),
                           ),
-                          fixedSize: Size(158, 49)),
+                          fixedSize: Size(158.w, 49.h)),
                       child: Text(
                         'Oui',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                     TextButton(
                       style: TextButton.styleFrom(
-                        fixedSize: Size(158, 49),
+                        fixedSize: Size(158.w, 49.h),
                         primary: Colors.white,
                         backgroundColor: SwiftColors.purple,
                         shape: RoundedRectangleBorder(
@@ -88,27 +89,27 @@ class _SingleProductPreviewState extends State<SingleProductPreview> {
                       child: Text(
                         'Non',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
               ] else
                 // button ajouter au panier et affichier le pris
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                     //affichage de prix
                     Expanded(
                         flex: 1,
                         child: PrimaryButton(
                             icon: Icon(
                               Icons.close,
-                              size: 30,
+                              size: 30.sp,
                               color: Colors.white,
                             ),
                             backColor: SwiftColors.orange,
@@ -119,7 +120,7 @@ class _SingleProductPreviewState extends State<SingleProductPreview> {
                               });
                             },
                             text: 'delete')),
-                    const SizedBox(width: 15),
+                    SizedBox(width: 15.w),
 
                     // button d ajouter au panier
                     Expanded(
@@ -133,115 +134,125 @@ class _SingleProductPreviewState extends State<SingleProductPreview> {
                         text: 'Modifier',
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    SizedBox(width: 20.w),
                   ],
                 ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
             ],
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.45,
-                width: MediaQuery.of(context).size.width,
-                // photo de produit dans decoration
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/burger.png'),
-                  ),
-                ),
-                child: Stack(
-                  children: [
-                    // bouton de retour
-                    Positioned(
-                      top: 30,
-                      left: 30,
-                      child: CustomIconButton(
-                        icon: Center(
-                          child: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.black,
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.45,
+                    width: MediaQuery.of(context).size.width,
+                    // photo de produit dans decoration
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/images/burger.png'),
                       ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              // information de produit
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    Text(
-                      'Chicken Burger',
-                      style: TextStyle(fontSize: 24, fontFamily: 'montserrat-bold'),
                     ),
-                    Spacer(),
-                    SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        const Text(
-                          'Prix',
-                          style: TextStyle(
-                              color: SwiftColors.hintGreyColor,
-                              fontSize: 14,
-                              fontFamily: 'montserrat-bold'),
-                        ),
-                        const SizedBox(height: 3),
-                        const Text(
-                          '400 DA',
-                          style: TextStyle(
-                              color: SwiftColors.orange,
-                              fontSize: 20,
-                              fontFamily: 'montserrat-bold'),
+                    child: Stack(
+                      children: [
+                        // bouton de retour
+                        Positioned(
+                          top: 30.h,
+                          left: 30.w,
+                          child: CustomIconButton(
+                            icon: Center(
+                              child: const Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.black,
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
                         )
                       ],
                     ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 20),
-              Divider(),
-              // description de produit
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Wrap(
-                      alignment: WrapAlignment.start,
+                  ),
+                  SizedBox(height: 20.h),
+                  // information de produit
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Row(
                       children: [
                         Text(
-                          showText
-                              ? text
-                              : text.replaceRange((text.length / 10).floor(), text.length, ''),
-                          textAlign: TextAlign.start,
+                          'Chicken Burger',
+                          style: TextStyle(fontSize: 24.sp, fontFamily: 'montserrat-bold'),
                         ),
-                        SizedBox(width: 5),
-                        GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                showText = !showText;
-                              });
-                            },
-                            child: const Text(
-                              'affichier plus',
-                              style: TextStyle(color: SwiftColors.orange),
-                            )),
+                        Spacer(),
+                        SizedBox(width: 10.h),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Prix',
+                              style: TextStyle(
+                                  color: SwiftColors.hintGreyColor,
+                                  fontSize: 14.sp,
+                                  fontFamily: 'montserrat-bold'),
+                            ),
+                            const SizedBox(height: 3),
+                            Text(
+                              '400 DA',
+                              style: TextStyle(
+                                  color: SwiftColors.orange,
+                                  fontSize: 20.sp,
+                                  fontFamily: 'montserrat-bold'),
+                            )
+                          ],
+                        ),
                       ],
                     ),
-                  )),
-              SizedBox(height: 50)
-            ],
-          ),
+                  ),
+                  SizedBox(height: 20.h),
+                  Divider(),
+                  // description de produit
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          alignment: WrapAlignment.start,
+                          children: [
+                            Text(
+                              showText
+                                  ? text
+                                  : text.replaceRange((text.length / 10).floor(), text.length, ''),
+                              textAlign: TextAlign.start,
+                            ),
+                            SizedBox(width: 5),
+                            GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    showText = !showText;
+                                  });
+                                },
+                                child: const Text(
+                                  'affichier plus',
+                                  style: TextStyle(color: SwiftColors.orange),
+                                )),
+                          ],
+                        ),
+                      )),
+                  SizedBox(height: 50.h)
+                ],
+              ),
+            ),
+            if (showAllPanel)
+              Container(
+                height: MediaQuery.of(context).size.height * 1.2,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black.withOpacity(0.7),
+              )
+          ],
         ),
       ),
     );

@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MarketPageViewElement extends StatelessWidget {
   final double review;
@@ -60,7 +62,12 @@ class MarketPageViewElement extends StatelessWidget {
                 child: Row(
                   children: [
                     const SizedBox(width: 5),
-                    Image.asset('assets/icons/livraison.png'),
+                    SvgPicture.asset(
+                      'assets/icons/livraison_big.svg',
+                      color: Colors.black,
+                      width: 25.w,
+                      height: 25.h,
+                    ),
                     const SizedBox(width: 7),
                     Text(
                       '$deliveryPrice DA',

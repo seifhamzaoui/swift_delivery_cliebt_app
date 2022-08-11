@@ -19,18 +19,19 @@ class InfoPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: CustomIconButton(
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
+            Row(
+              children: [
+                CustomIconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  backColor: SwiftColors.backGrey,
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                backColor: SwiftColors.backGrey,
-              ),
+              ],
             ),
             const SizedBox(height: 65),
             Text(
