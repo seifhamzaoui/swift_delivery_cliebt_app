@@ -51,7 +51,7 @@ class _MagasinReviewsPageState extends State<MagasinReviewsPage> {
                       child: CustomIconButton(
                         icon: Center(
                           child: const Icon(
-                            Icons.arrow_back_ios,
+                            Icons.arrow_back_ios_new,
                             color: Colors.black,
                           ),
                         ),

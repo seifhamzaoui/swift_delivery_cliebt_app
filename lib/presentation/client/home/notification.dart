@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Notifications extends StatefulWidget {
   const Notifications({Key? key}) : super(key: key);
@@ -19,7 +21,7 @@ class _NotificationsState extends State<Notifications> {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
               Row(
@@ -27,7 +29,7 @@ class _NotificationsState extends State<Notifications> {
                 children: [
                   CustomIconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios,
+                      Icons.arrow_back_ios_new,
                       color: Colors.black,
                     ),
                     onPressed: () {},
@@ -35,8 +37,8 @@ class _NotificationsState extends State<Notifications> {
                   Expanded(child: Image.asset('assets/images/logo_small.png')),
                   CustomIconButton(
                     backColor: SwiftColors.orange,
-                    icon: Image.asset(
-                      'assets/icons/notification.png',
+                    icon: SvgPicture.asset(
+                      'assets/icons/notification.svg',
                       color: Colors.white,
                     ),
                     onPressed: () {},

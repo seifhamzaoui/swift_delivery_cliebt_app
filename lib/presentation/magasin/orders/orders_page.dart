@@ -38,14 +38,14 @@ class _OrdersPageState extends State<OrdersPage> {
                 children: [
                   CustomIconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios,
+                      Icons.arrow_back_ios_new,
                       color: Colors.black,
                     ),
                     onPressed: () {},
                   ),
                   Expanded(child: Image.asset('assets/images/logo_small.png')),
                   CustomIconButton(
-                    icon: Image.asset('assets/icons/notification.png'),
+                    icon: SvgPicture.asset('assets/icons/notification.svg'),
                     onPressed: () {},
                   ),
                 ],

@@ -10,6 +10,7 @@ import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:client_app/presentation/core/market_pageView_element.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainScreen extends StatefulWidget {
   MainScreen({
@@ -48,7 +49,7 @@ class _MainScreenState extends State<MainScreen> {
               CustomTextField(
                 hintText: 'Trouvez votre restaurant….',
                 fillColor: Colors.white,
-                icon: Image.asset('assets/icons/search.png'),
+                icon: SvgPicture.asset('assets/icons/search.svg'),
               ),
               SizedBox(height: 20.h),
               SizedBox(

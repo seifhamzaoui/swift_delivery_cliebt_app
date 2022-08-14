@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:math';
+
 import 'package:client_app/presentation/auth/login_widget.dart';
 import 'package:client_app/presentation/client/orders/order_map_way.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +52,7 @@ class _SingleOrderPageState extends State<SingleOrderPage> {
                           children: [
                             CustomIconButton(
                               icon: Icon(
-                                Icons.arrow_back_ios,
+                                Icons.arrow_back_ios_new,
                                 color: Colors.black,
                               ),
                               onPressed: () {},
@@ -322,98 +324,205 @@ class _SingleOrderPageState extends State<SingleOrderPage> {
   }
 }
 
-class CirclePurpleCheck extends StatelessWidget {
+class CirclePurpleCheck extends StatefulWidget {
   const CirclePurpleCheck({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<CirclePurpleCheck> createState() => _CirclePurpleCheckState();
+}
+
+class _CirclePurpleCheckState extends State<CirclePurpleCheck> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2000))
+      ..repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: MediaQuery.of(context).size.width * 0.30,
-      top: 50,
-      child: Container(
-        height: 111,
-        width: 111,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: SwiftColors.purple,
-          boxShadow: [
-            BoxShadow(
-              color: SwiftColors.purple.withOpacity(0.1),
-              offset: Offset(0, 0),
-              blurRadius: 0,
-              spreadRadius: 10,
+      left: MediaQuery.of(context).size.width * 0.25,
+      top: 10,
+      child: SizedBox(
+        height: 165,
+        width: 165,
+        child: Stack(
+          children: [
+            Center(
+              child: SizedBox(
+                height: 165,
+                width: 165,
+                child: AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return CustomPaint(
+                      painter: WaterRipplePainter(_controller.value,
+                          count: 2, color: SwiftColors.purple),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                height: 111,
+                width: 111,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: SwiftColors.purple,
+                ),
+                child: Icon(
+                  Icons.check,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
-        ),
-        child: Icon(
-          Icons.check,
-          size: 30,
-          color: Colors.white,
         ),
       ),
     );
   }
 }
 
-class OrderCompletedIcon extends StatelessWidget {
+class OrderCompletedIcon extends StatefulWidget {
   const OrderCompletedIcon({Key? key}) : super(key: key);
 
   @override
+  State<OrderCompletedIcon> createState() => _OrderCompletedIconState();
+}
+
+class _OrderCompletedIconState extends State<OrderCompletedIcon>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2000))
+      ..repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 35,
-          width: 35,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: SwiftColors.green,
-            boxShadow: [
-              BoxShadow(
-                color: SwiftColors.green.withOpacity(0.1),
-                offset: Offset(0, 0),
-                blurRadius: 0,
-                spreadRadius: 5,
-              ),
-            ],
+    return Positioned(
+      left: MediaQuery.of(context).size.width * 0.25,
+      top: 10,
+      child: Column(
+        children: [
+          SizedBox(
+            height: 60,
+            width: 60,
+            child: Stack(
+              children: [
+                Center(
+                  child: SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return CustomPaint(
+                          painter: WaterRipplePainter(_controller.value,
+                              count: 2, color: SwiftColors.green),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SwiftColors.green,
+                    ),
+                    child: Icon(
+                      Icons.check,
+                      size: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          child: Icon(
-            Icons.check,
-            size: 30,
-            color: Colors.white,
-          ),
-        ),
-        const SizedBox(height: 16.2),
-        Text(
-          'Commande Complété',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 12,
-            color: SwiftColors.green,
-          ),
-        )
-      ],
+          const SizedBox(height: 16.2),
+          Text(
+            'Commande Complété',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 12,
+              color: SwiftColors.green,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
 
-class OrderPending extends StatelessWidget {
+class OrderPending extends StatefulWidget {
   const OrderPending({
     Key? key,
     required this.orderStatus,
   }) : super(key: key);
   final OrderStatus orderStatus;
+
+  @override
+  State<OrderPending> createState() => _OrderPendingState();
+}
+
+class _OrderPendingState extends State<OrderPending> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 2000))
+      ..repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    String text = orderStatus == OrderStatus.LIV_PENDING
+    String text = widget.orderStatus == OrderStatus.LIV_PENDING
         ? 'en attente de \nLivraison'
         : 'Validation du \nrestaurant en attente';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset('assets/icons/pending_star.png'),
+        AnimatedBuilder(
+            animation: _controller,
+            builder: (context, _ctrl) {
+              return Transform.rotate(
+                angle: pi * _controller.value,
+                child: Image.asset('assets/icons/pending_star.png'),
+              );
+            }),
         const SizedBox(height: 16.2),
         Text(
           text,

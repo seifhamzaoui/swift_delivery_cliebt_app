@@ -34,12 +34,13 @@ class _FoodScreenState extends State<FoodScreen> {
         return true;
       },
       child: Scaffold(
-        bottomNavigationBar: Container(
+        bottomNavigationBar: AnimatedContainer(
+          duration: Duration(milliseconds: 200),
           height: showAllPanel ? 300.h : 90.h,
           decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
-                const BoxShadow(color: Colors.black, blurRadius: 10, spreadRadius: 1),
+                const BoxShadow(color: Colors.black, blurRadius: 2, spreadRadius: 0),
               ],
               borderRadius: !showAllPanel ? null : BorderRadius.vertical(top: Radius.circular(5))),
           child: Column(
@@ -64,7 +65,7 @@ class _FoodScreenState extends State<FoodScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CircleAvatar(
-                        maxRadius: 35.w,
+                        maxRadius: 35.sp,
                         backgroundColor: productsNumber != 0 ? Colors.white : Color(0xffE6E6E6),
                         foregroundColor: Colors.black,
                         child: IconButton(
@@ -81,7 +82,7 @@ class _FoodScreenState extends State<FoodScreen> {
                       Text('$productsNumber',
                           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700)),
                       CircleAvatar(
-                        maxRadius: 35,
+                        maxRadius: 35.sp,
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black,
                         child: IconButton(
@@ -170,7 +171,7 @@ class _FoodScreenState extends State<FoodScreen> {
                           child: CustomIconButton(
                             icon: Center(
                               child: const Icon(
-                                Icons.arrow_back_ios,
+                                Icons.arrow_back_ios_new,
                                 color: Colors.black,
                               ),
                             ),

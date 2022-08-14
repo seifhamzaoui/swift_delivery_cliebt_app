@@ -39,7 +39,7 @@ class _AddProductorCategoryState extends State<AddProductorCategory> {
                 children: [
                   CustomIconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios,
+                      Icons.arrow_back_ios_new,
                       color: Colors.black,
                     ),
                     onPressed: () {},

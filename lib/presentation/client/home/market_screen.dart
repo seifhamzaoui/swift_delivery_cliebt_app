@@ -52,34 +52,36 @@ class _MarketScreenState extends State<MarketScreen> {
       },
       child: Scaffold(
         drawer: SwiftDrawer(),
-        bottomNavigationBar: !showAddproduct
-            ? CustomBottomNavigationBar(
-                onChangePage: (index) {
-                  Navigator.of(context).pop(index);
-                },
-                indexChoosed: 0)
-            : Container(
-                height: 300.h,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      const BoxShadow(color: Colors.black, blurRadius: 10, spreadRadius: 1),
-                    ],
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(5.w))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    /// separator gris
-                    SizedBox(height: 20.h),
-                    const GreySeparator(),
-                    SizedBox(height: 20.h),
-                    // Combien?
+        bottomNavigationBar: Stack(
+          children: [
+            if (!showAddproduct)
+              CustomBottomNavigationBar(
+                  onChangePage: (index) {
+                    Navigator.of(context).pop(index);
+                  },
+                  indexChoosed: 0),
+            AnimatedContainer(
+              duration: Duration(milliseconds: 200),
+              height: showAddproduct ? 300.h : 0,
+              decoration: BoxDecoration(
+                  color: showAddproduct ? Colors.white : Colors.transparent,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(5.w))),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  /// separator gris
+                  if (showAddproduct) SizedBox(height: 20.h),
+                  if (showAddproduct) const GreySeparator(),
+                  if (showAddproduct) SizedBox(height: 20.h),
+                  // Combien?
 
-                    Text('combien?',
+                  if (showAddproduct)
+                    Text('Combien?',
                         style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700)),
-                    SizedBox(height: 40.h),
-                    // button d ajouter ou reduire nombre des produit
+                  if (showAddproduct) SizedBox(height: 40.h),
+                  // button d ajouter ou reduire nombre des produit
 
+                  if (showAddproduct)
                     Container(
                       height: 80.h,
                       width: 220.w,
@@ -89,7 +91,7 @@ class _MarketScreenState extends State<MarketScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           CircleAvatar(
-                            maxRadius: 35,
+                            maxRadius: 35.sp,
                             backgroundColor: productsNumber != 0 ? Colors.white : Color(0xffE6E6E6),
                             foregroundColor: Colors.black,
                             child: IconButton(
@@ -106,7 +108,7 @@ class _MarketScreenState extends State<MarketScreen> {
                           Text('$productsNumber',
                               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700)),
                           CircleAvatar(
-                            maxRadius: 35,
+                            maxRadius: 35.sp,
                             backgroundColor: Colors.white,
                             foregroundColor: Colors.black,
                             child: IconButton(
@@ -121,8 +123,9 @@ class _MarketScreenState extends State<MarketScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
-                    // button ajouter au panier et affichier le pris
+                  if (showAddproduct) SizedBox(height: 20),
+                  // button ajouter au panier et affichier le pris
+                  if (showAddproduct)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -145,10 +148,12 @@ class _MarketScreenState extends State<MarketScreen> {
                         SizedBox(width: 20.w),
                       ],
                     ),
-                    SizedBox(height: 10.h),
-                  ],
-                ),
+                  SizedBox(height: 10.h),
+                ],
               ),
+            ),
+          ],
+        ),
         backgroundColor: SwiftColors.backGrey,
         body: Stack(
           children: [
@@ -238,7 +243,7 @@ class _MarketScreenState extends State<MarketScreen> {
                       CustomTextField(
                         hintText: 'Trouvez votre repas….',
                         fillColor: Colors.white,
-                        icon: Image.asset('assets/icons/search.png'),
+                        icon: SvgPicture.asset('assets/icons/search.svg'),
                       ),
                       SizedBox(height: 20.h),
                       SizedBox(

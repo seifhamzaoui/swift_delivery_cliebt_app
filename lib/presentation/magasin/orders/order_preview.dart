@@ -19,7 +19,7 @@ class OrderPreviewPage extends StatefulWidget {
 }
 
 class _OrderPreviewPageState extends State<OrderPreviewPage> {
-  OrderStatus orderStatus = OrderStatus.RES_PENDING;
+  OrderStatus orderStatus = OrderStatus.LIV_PENDING;
   bool showDialog = false;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _OrderPreviewPageState extends State<OrderPreviewPage> {
                   children: [
                     CustomIconButton(
                       icon: Icon(
-                        Icons.arrow_back_ios,
+                        Icons.arrow_back_ios_new,
                         color: Colors.black,
                       ),
                       onPressed: () {},

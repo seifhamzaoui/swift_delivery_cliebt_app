@@ -3,6 +3,7 @@ import 'package:client_app/application/auth/register_bloc/register_bloc.dart';
 import 'package:client_app/presentation/auth/register_magasin/choose_account_type.dart';
 import 'package:client_app/presentation/core/rectangle_text_field.dart';
 import 'package:client_app/presentation/error/gps_required.dart';
+import 'package:client_app/presentation/welcome_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -21,18 +22,27 @@ class PhoneConfirmation extends StatefulWidget {
   State<PhoneConfirmation> createState() => _PhoneConfirmationState();
 }
 
-class _PhoneConfirmationState extends State<PhoneConfirmation> {
+class _PhoneConfirmationState extends State<PhoneConfirmation> with SingleTickerProviderStateMixin {
   final List<FocusNode> focusNodes = List.generate(
     5,
     (index) => FocusNode(
       debugLabel: index.toString(),
     ),
   );
+  late AnimationController _controller;
 
   @override
   void initState() {
     focusNodes[0].requestFocus();
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
+      ..repeat();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,6 +57,28 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
         body: Stack(
           fit: StackFit.expand,
           children: [
+            Positioned(
+                top: 0,
+                left: -MediaQuery.of(context).size.width / 4,
+                child: Transform.scale(
+                  scale: 1.3,
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    width: MediaQuery.of(context).size.width * 1.5,
+                    child: AnimatedBuilder(
+                      animation: _controller,
+                      builder: (context, child) {
+                        return CustomPaint(
+                          painter: WaterRipplePainter(
+                            _controller.value,
+                            count: 6,
+                            color: Colors.white,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                )),
             Column(
               children: [
                 Container(
@@ -54,9 +86,9 @@ class _PhoneConfirmationState extends State<PhoneConfirmation> {
                   child: Transform.translate(
                     offset: Offset(0, -20),
                     child: Transform.scale(
-                      scale: 1.1,
+                      scale: 1.11,
                       child: Image.asset(
-                        'assets/images/eliptic_preview.png',
+                        'assets/images/eleptic_preview_2.png',
                         fit: BoxFit.fill,
                         color: Colors.black.withOpacity(0.7),
                         colorBlendMode: BlendMode.darken,

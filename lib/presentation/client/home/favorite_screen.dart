@@ -6,6 +6,7 @@ import 'package:client_app/presentation/core/market_grid_element.dart';
 import 'package:flutter/material.dart';
 
 import 'package:client_app/presentation/constants/colors.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class FavoriteGridItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset('assets/icons/yellow_star.png'),
+                  SvgPicture.asset('assets/icons/yellow_star.svg'),
                   SizedBox(width: 5),
                   Text(
                     '4.3',

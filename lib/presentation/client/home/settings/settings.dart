@@ -45,7 +45,7 @@ class _SettingsState extends State<Settings> {
                 children: [
                   Builder(builder: (contet) {
                     return CustomIconButton(
-                      icon: Image.asset('assets/icons/menu.png'),
+                      icon: SvgPicture.asset('assets/icons/menu.svg'),
                       onPressed: () {
                         if (!widget.isMagasin && scaffold != null)
                           scaffold.openDrawer();
@@ -57,7 +57,7 @@ class _SettingsState extends State<Settings> {
                   }),
                   Expanded(child: Image.asset('assets/images/logo_small.png')),
                   CustomIconButton(
-                    icon: Image.asset('assets/icons/notification.png'),
+                    icon: SvgPicture.asset('assets/icons/notification.svg'),
                     onPressed: () {
                       Navigator.push(
                           context, MaterialPageRoute(builder: (context) => Notifications()));
@@ -358,7 +358,7 @@ class CircleProfilePhoto extends StatelessWidget {
               onTap: () {
                 onPressed();
               },
-              child: Image.asset('assets/icons/add_photo.png'),
+              child: SvgPicture.asset('assets/icons/add_photo.svg'),
             ),
           )
         ],

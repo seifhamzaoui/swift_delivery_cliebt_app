@@ -13,6 +13,23 @@ class CustomIconButton extends StatelessWidget {
   Color? backColor;
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onPressed();
+      },
+      child: Container(
+        height: 52.w,
+        width: 52.w,
+        padding: EdgeInsets.only(),
+        decoration: BoxDecoration(
+          color: backColor ?? Colors.white,
+          borderRadius: BorderRadius.circular(9.h),
+        ),
+        child: Center(
+          child: icon,
+        ),
+      ),
+    );
     return ElevatedButton(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),

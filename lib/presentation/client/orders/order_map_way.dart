@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
+import 'dart:math';
 
 import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
@@ -137,9 +138,12 @@ class OrderMapWayState extends State<OrderMapWay> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(width: 40.w),
-                  ShadowStatusIndicator(color: SwiftColors.orange),
-                  SizedBox(width: 40.w),
+                  SizedBox(width: 10.w),
+                  SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: ShadowStatusIndicator(color: SwiftColors.orange)),
+                  SizedBox(width: 20.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -147,7 +151,7 @@ class OrderMapWayState extends State<OrderMapWay> {
                         'En route pour prendre la commande',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 11.sp,
+                          fontSize: 14.sp,
                         ),
                       ),
                       SizedBox(height: 5.h),
@@ -184,28 +188,104 @@ class OrderMapWayState extends State<OrderMapWay> {
   }
 }
 
-class ShadowStatusIndicator extends StatelessWidget {
+class ShadowStatusIndicator extends StatefulWidget {
   const ShadowStatusIndicator({
     Key? key,
     required this.color,
   }) : super(key: key);
   final Color color;
+
+  @override
+  State<ShadowStatusIndicator> createState() => _ShadowStatusIndicatorState();
+}
+
+class _ShadowStatusIndicatorState extends State<ShadowStatusIndicator>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 1000))
+      ..repeat();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 11.h,
-      width: 11.h,
-      decoration: BoxDecoration(
-        color: color,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: color.withOpacity(0.12),
-            blurRadius: 1,
-            spreadRadius: 25,
+      height: 60,
+      width: 60,
+      child: Stack(
+        children: [
+          Center(
+            child: SizedBox(
+              height: 60,
+              width: 60,
+              child: AnimatedBuilder(
+                animation: _controller,
+                builder: (context, child) {
+                  return CustomPaint(
+                    painter: WaterRipplePainter(_controller.value, count: 0, color: widget.color),
+                  );
+                },
+              ),
+            ),
           ),
+          Center(
+            child: Container(
+              height: 11.h,
+              width: 11.h,
+              decoration: BoxDecoration(
+                color: widget.color,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                    color: widget.color.withOpacity(0.12),
+                    blurRadius: 1,
+                    spreadRadius: 25,
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
+  }
+}
+
+class WaterRipplePainter extends CustomPainter {
+  final double progress;
+  final int count;
+  final Color color;
+
+  Paint _paint = Paint()..style = PaintingStyle.fill;
+
+  WaterRipplePainter(this.progress, {this.count = 3, this.color = const Color(0xFF0080ff)});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    double radius = min(size.width / 2, size.height / 2);
+
+    for (int i = count; i >= 0; i--) {
+      final double opacity = (1.0 - ((i + progress) / (count + 1)));
+      final Color _color = color.withOpacity(opacity);
+      _paint..color = _color;
+
+      double _radius = radius * ((i + progress) / (count + 1));
+
+      canvas.drawCircle(Offset(size.width / 2, size.height / 2), _radius, _paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 }

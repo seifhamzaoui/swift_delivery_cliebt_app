@@ -22,7 +22,7 @@ class Panier extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CustomIconButton(
-                      icon: Image.asset('assets/icons/menu.png'),
+                      icon: SvgPicture.asset('assets/icons/menu.svg'),
                       onPressed: () {
                         Scaffold.of(context).openDrawer();
                       },
@@ -34,7 +34,7 @@ class Panier extends StatelessWidget {
                       style: TextStyle(fontSize: 20.sp, color: SwiftColors.purple),
                     )),
                     CustomIconButton(
-                      icon: Image.asset('assets/icons/notification.png'),
+                      icon: SvgPicture.asset('assets/icons/notification.svg'),
                       onPressed: () {},
                     ),
                   ],

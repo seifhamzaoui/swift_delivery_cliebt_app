@@ -25,7 +25,8 @@ class SwiftDrawer extends StatelessWidget {
                 children: [
                   CustomIconButton(
                     icon: Icon(
-                      Icons.arrow_back_ios,
+                      Icons.arrow_back_ios_new,
+                      color: Colors.white,
                     ),
                     backColor: SwiftColors.lightPurple,
                     onPressed: () {
@@ -51,7 +52,12 @@ class SwiftDrawer extends StatelessWidget {
               ),
               SizedBox(height: 23.h),
               DrawerMenuItem(
-                icon: Image.asset('assets/icons/drawer/info.png'),
+                icon: SvgPicture.asset(
+                  'assets/icons/drawer/info.svg',
+                  color: Color(0xffFFAF68),
+                  height: 32,
+                  width: 32,
+                ),
                 title: 'Informations sur l\'Application',
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: ((context) => InfoPage())));

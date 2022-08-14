@@ -9,6 +9,7 @@ import 'package:client_app/presentation/constants/colors.dart';
 import 'package:client_app/presentation/core/custom_icon_button.dart';
 import 'package:client_app/presentation/core/custom_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryProductList extends StatelessWidget {
   const CategoryProductList({Key? key}) : super(key: key);
@@ -30,14 +31,14 @@ class CategoryProductList extends StatelessWidget {
                           children: [
                             CustomIconButton(
                               icon: Icon(
-                                Icons.arrow_back_ios,
+                                Icons.arrow_back_ios_new,
                                 color: Colors.black,
                               ),
                               onPressed: () {},
                             ),
                             Expanded(child: Image.asset('assets/images/logo_small.png')),
                             CustomIconButton(
-                              icon: Image.asset('assets/icons/notification.png'),
+                              icon: SvgPicture.asset('assets/icons/notification.svg'),
                               onPressed: () {},
                             ),
                           ],

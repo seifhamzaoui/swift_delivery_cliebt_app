@@ -36,7 +36,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   children: [
                     CustomIconButton(
                       icon: Icon(
-                        Icons.arrow_back_ios,
+                        Icons.arrow_back_ios_new,
                         color: Colors.black,
                       ),
                       onPressed: () {
