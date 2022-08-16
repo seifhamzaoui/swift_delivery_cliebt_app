@@ -4,6 +4,11 @@ part of 'register_bloc.dart';
 class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.started() = _Started;
   const factory RegisterEvent.validateinfo() = _Validateinfo;
+  const factory RegisterEvent.setFirstName(String fname) = _SetFirstName;
+  const factory RegisterEvent.setSecondName(String sname) = _SetSecondName;
+  const factory RegisterEvent.setUserName(String userName) = _SetUserName;
+  const factory RegisterEvent.setPhoneNumber(String phoneNUmber) = _SetPhoneNumber;
+  const factory RegisterEvent.setPassword(String password) = _SetPassword;
   const factory RegisterEvent.validatePhone() = _ValidatePhone;
   const factory RegisterEvent.setAccountType(AccountTypes accountTypes) = _SetAccountType;
   const factory RegisterEvent.setmagasinType(MagasinCategory magasinType) = _SetmagasinType;

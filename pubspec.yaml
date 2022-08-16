@@ -47,6 +47,8 @@ dependencies:
   get_it: null
   google_maps_flutter: ^2.1.10
   injectable: null
+  firebase_core: ^1.20.1
+  firebase_auth:
 
 dev_dependencies:
   build_runner: null

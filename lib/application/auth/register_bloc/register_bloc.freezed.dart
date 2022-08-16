@@ -20,6 +20,11 @@ mixin _$RegisterEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -38,6 +43,11 @@ mixin _$RegisterEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -55,6 +65,11 @@ mixin _$RegisterEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -73,6 +88,11 @@ mixin _$RegisterEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -88,6 +108,11 @@ mixin _$RegisterEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -103,6 +128,11 @@ mixin _$RegisterEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -175,6 +205,11 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -196,6 +231,11 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -216,6 +256,11 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -240,6 +285,11 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -258,6 +308,11 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -276,6 +331,11 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -341,6 +401,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -362,6 +427,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -382,6 +452,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -406,6 +481,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -424,6 +504,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -442,6 +527,11 @@ class _$_Validateinfo implements _Validateinfo {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -462,6 +552,1132 @@ class _$_Validateinfo implements _Validateinfo {
 
 abstract class _Validateinfo implements RegisterEvent {
   const factory _Validateinfo() = _$_Validateinfo;
+}
+
+/// @nodoc
+abstract class _$$_SetFirstNameCopyWith<$Res> {
+  factory _$$_SetFirstNameCopyWith(
+          _$_SetFirstName value, $Res Function(_$_SetFirstName) then) =
+      __$$_SetFirstNameCopyWithImpl<$Res>;
+  $Res call({String fname});
+}
+
+/// @nodoc
+class __$$_SetFirstNameCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res>
+    implements _$$_SetFirstNameCopyWith<$Res> {
+  __$$_SetFirstNameCopyWithImpl(
+      _$_SetFirstName _value, $Res Function(_$_SetFirstName) _then)
+      : super(_value, (v) => _then(v as _$_SetFirstName));
+
+  @override
+  _$_SetFirstName get _value => super._value as _$_SetFirstName;
+
+  @override
+  $Res call({
+    Object? fname = freezed,
+  }) {
+    return _then(_$_SetFirstName(
+      fname == freezed
+          ? _value.fname
+          : fname // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetFirstName implements _SetFirstName {
+  const _$_SetFirstName(this.fname);
+
+  @override
+  final String fname;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setFirstName(fname: $fname)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetFirstName &&
+            const DeepCollectionEquality().equals(other.fname, fname));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(fname));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetFirstNameCopyWith<_$_SetFirstName> get copyWith =>
+      __$$_SetFirstNameCopyWithImpl<_$_SetFirstName>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
+    required TResult Function() validatePhone,
+    required TResult Function(AccountTypes accountTypes) setAccountType,
+    required TResult Function(MagasinCategory magasinType) setmagasinType,
+    required TResult Function(MagasinSubCategory magasinSubtype)
+        setRestaurantType,
+    required TResult Function() setREstaurantInfo,
+    required TResult Function(DateTime beginHour, DateTime endHour,
+            DateTime beginDay, DateTime endDay, bool workAlldays)
+        setWorkingTime,
+    required TResult Function() selectmagasinPicture,
+    required TResult Function(LatLng postion) setMagasinlocation,
+    required TResult Function(int? value) returnTo,
+  }) {
+    return setFirstName(fname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+  }) {
+    return setFirstName?.call(fname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setFirstName != null) {
+      return setFirstName(fname);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_ValidatePhone value) validatePhone,
+    required TResult Function(_SetAccountType value) setAccountType,
+    required TResult Function(_SetmagasinType value) setmagasinType,
+    required TResult Function(_SetRestaurantType value) setRestaurantType,
+    required TResult Function(_SetREstaurantInfo value) setREstaurantInfo,
+    required TResult Function(_SetWorkingTime value) setWorkingTime,
+    required TResult Function(_selectmagasinPicture value) selectmagasinPicture,
+    required TResult Function(_setMagasinlocation value) setMagasinlocation,
+    required TResult Function(_ReturnTo value) returnTo,
+  }) {
+    return setFirstName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+  }) {
+    return setFirstName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setFirstName != null) {
+      return setFirstName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetFirstName implements RegisterEvent {
+  const factory _SetFirstName(final String fname) = _$_SetFirstName;
+
+  String get fname;
+  @JsonKey(ignore: true)
+  _$$_SetFirstNameCopyWith<_$_SetFirstName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetSecondNameCopyWith<$Res> {
+  factory _$$_SetSecondNameCopyWith(
+          _$_SetSecondName value, $Res Function(_$_SetSecondName) then) =
+      __$$_SetSecondNameCopyWithImpl<$Res>;
+  $Res call({String sname});
+}
+
+/// @nodoc
+class __$$_SetSecondNameCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res>
+    implements _$$_SetSecondNameCopyWith<$Res> {
+  __$$_SetSecondNameCopyWithImpl(
+      _$_SetSecondName _value, $Res Function(_$_SetSecondName) _then)
+      : super(_value, (v) => _then(v as _$_SetSecondName));
+
+  @override
+  _$_SetSecondName get _value => super._value as _$_SetSecondName;
+
+  @override
+  $Res call({
+    Object? sname = freezed,
+  }) {
+    return _then(_$_SetSecondName(
+      sname == freezed
+          ? _value.sname
+          : sname // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetSecondName implements _SetSecondName {
+  const _$_SetSecondName(this.sname);
+
+  @override
+  final String sname;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setSecondName(sname: $sname)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetSecondName &&
+            const DeepCollectionEquality().equals(other.sname, sname));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(sname));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetSecondNameCopyWith<_$_SetSecondName> get copyWith =>
+      __$$_SetSecondNameCopyWithImpl<_$_SetSecondName>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
+    required TResult Function() validatePhone,
+    required TResult Function(AccountTypes accountTypes) setAccountType,
+    required TResult Function(MagasinCategory magasinType) setmagasinType,
+    required TResult Function(MagasinSubCategory magasinSubtype)
+        setRestaurantType,
+    required TResult Function() setREstaurantInfo,
+    required TResult Function(DateTime beginHour, DateTime endHour,
+            DateTime beginDay, DateTime endDay, bool workAlldays)
+        setWorkingTime,
+    required TResult Function() selectmagasinPicture,
+    required TResult Function(LatLng postion) setMagasinlocation,
+    required TResult Function(int? value) returnTo,
+  }) {
+    return setSecondName(sname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+  }) {
+    return setSecondName?.call(sname);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setSecondName != null) {
+      return setSecondName(sname);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_ValidatePhone value) validatePhone,
+    required TResult Function(_SetAccountType value) setAccountType,
+    required TResult Function(_SetmagasinType value) setmagasinType,
+    required TResult Function(_SetRestaurantType value) setRestaurantType,
+    required TResult Function(_SetREstaurantInfo value) setREstaurantInfo,
+    required TResult Function(_SetWorkingTime value) setWorkingTime,
+    required TResult Function(_selectmagasinPicture value) selectmagasinPicture,
+    required TResult Function(_setMagasinlocation value) setMagasinlocation,
+    required TResult Function(_ReturnTo value) returnTo,
+  }) {
+    return setSecondName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+  }) {
+    return setSecondName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setSecondName != null) {
+      return setSecondName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetSecondName implements RegisterEvent {
+  const factory _SetSecondName(final String sname) = _$_SetSecondName;
+
+  String get sname;
+  @JsonKey(ignore: true)
+  _$$_SetSecondNameCopyWith<_$_SetSecondName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetUserNameCopyWith<$Res> {
+  factory _$$_SetUserNameCopyWith(
+          _$_SetUserName value, $Res Function(_$_SetUserName) then) =
+      __$$_SetUserNameCopyWithImpl<$Res>;
+  $Res call({String userName});
+}
+
+/// @nodoc
+class __$$_SetUserNameCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res>
+    implements _$$_SetUserNameCopyWith<$Res> {
+  __$$_SetUserNameCopyWithImpl(
+      _$_SetUserName _value, $Res Function(_$_SetUserName) _then)
+      : super(_value, (v) => _then(v as _$_SetUserName));
+
+  @override
+  _$_SetUserName get _value => super._value as _$_SetUserName;
+
+  @override
+  $Res call({
+    Object? userName = freezed,
+  }) {
+    return _then(_$_SetUserName(
+      userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetUserName implements _SetUserName {
+  const _$_SetUserName(this.userName);
+
+  @override
+  final String userName;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setUserName(userName: $userName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetUserName &&
+            const DeepCollectionEquality().equals(other.userName, userName));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(userName));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetUserNameCopyWith<_$_SetUserName> get copyWith =>
+      __$$_SetUserNameCopyWithImpl<_$_SetUserName>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
+    required TResult Function() validatePhone,
+    required TResult Function(AccountTypes accountTypes) setAccountType,
+    required TResult Function(MagasinCategory magasinType) setmagasinType,
+    required TResult Function(MagasinSubCategory magasinSubtype)
+        setRestaurantType,
+    required TResult Function() setREstaurantInfo,
+    required TResult Function(DateTime beginHour, DateTime endHour,
+            DateTime beginDay, DateTime endDay, bool workAlldays)
+        setWorkingTime,
+    required TResult Function() selectmagasinPicture,
+    required TResult Function(LatLng postion) setMagasinlocation,
+    required TResult Function(int? value) returnTo,
+  }) {
+    return setUserName(userName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+  }) {
+    return setUserName?.call(userName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setUserName != null) {
+      return setUserName(userName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_ValidatePhone value) validatePhone,
+    required TResult Function(_SetAccountType value) setAccountType,
+    required TResult Function(_SetmagasinType value) setmagasinType,
+    required TResult Function(_SetRestaurantType value) setRestaurantType,
+    required TResult Function(_SetREstaurantInfo value) setREstaurantInfo,
+    required TResult Function(_SetWorkingTime value) setWorkingTime,
+    required TResult Function(_selectmagasinPicture value) selectmagasinPicture,
+    required TResult Function(_setMagasinlocation value) setMagasinlocation,
+    required TResult Function(_ReturnTo value) returnTo,
+  }) {
+    return setUserName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+  }) {
+    return setUserName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setUserName != null) {
+      return setUserName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetUserName implements RegisterEvent {
+  const factory _SetUserName(final String userName) = _$_SetUserName;
+
+  String get userName;
+  @JsonKey(ignore: true)
+  _$$_SetUserNameCopyWith<_$_SetUserName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetPhoneNumberCopyWith<$Res> {
+  factory _$$_SetPhoneNumberCopyWith(
+          _$_SetPhoneNumber value, $Res Function(_$_SetPhoneNumber) then) =
+      __$$_SetPhoneNumberCopyWithImpl<$Res>;
+  $Res call({String phoneNUmber});
+}
+
+/// @nodoc
+class __$$_SetPhoneNumberCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res>
+    implements _$$_SetPhoneNumberCopyWith<$Res> {
+  __$$_SetPhoneNumberCopyWithImpl(
+      _$_SetPhoneNumber _value, $Res Function(_$_SetPhoneNumber) _then)
+      : super(_value, (v) => _then(v as _$_SetPhoneNumber));
+
+  @override
+  _$_SetPhoneNumber get _value => super._value as _$_SetPhoneNumber;
+
+  @override
+  $Res call({
+    Object? phoneNUmber = freezed,
+  }) {
+    return _then(_$_SetPhoneNumber(
+      phoneNUmber == freezed
+          ? _value.phoneNUmber
+          : phoneNUmber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetPhoneNumber implements _SetPhoneNumber {
+  const _$_SetPhoneNumber(this.phoneNUmber);
+
+  @override
+  final String phoneNUmber;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setPhoneNumber(phoneNUmber: $phoneNUmber)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetPhoneNumber &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNUmber, phoneNUmber));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(phoneNUmber));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetPhoneNumberCopyWith<_$_SetPhoneNumber> get copyWith =>
+      __$$_SetPhoneNumberCopyWithImpl<_$_SetPhoneNumber>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
+    required TResult Function() validatePhone,
+    required TResult Function(AccountTypes accountTypes) setAccountType,
+    required TResult Function(MagasinCategory magasinType) setmagasinType,
+    required TResult Function(MagasinSubCategory magasinSubtype)
+        setRestaurantType,
+    required TResult Function() setREstaurantInfo,
+    required TResult Function(DateTime beginHour, DateTime endHour,
+            DateTime beginDay, DateTime endDay, bool workAlldays)
+        setWorkingTime,
+    required TResult Function() selectmagasinPicture,
+    required TResult Function(LatLng postion) setMagasinlocation,
+    required TResult Function(int? value) returnTo,
+  }) {
+    return setPhoneNumber(phoneNUmber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+  }) {
+    return setPhoneNumber?.call(phoneNUmber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setPhoneNumber != null) {
+      return setPhoneNumber(phoneNUmber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_ValidatePhone value) validatePhone,
+    required TResult Function(_SetAccountType value) setAccountType,
+    required TResult Function(_SetmagasinType value) setmagasinType,
+    required TResult Function(_SetRestaurantType value) setRestaurantType,
+    required TResult Function(_SetREstaurantInfo value) setREstaurantInfo,
+    required TResult Function(_SetWorkingTime value) setWorkingTime,
+    required TResult Function(_selectmagasinPicture value) selectmagasinPicture,
+    required TResult Function(_setMagasinlocation value) setMagasinlocation,
+    required TResult Function(_ReturnTo value) returnTo,
+  }) {
+    return setPhoneNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+  }) {
+    return setPhoneNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setPhoneNumber != null) {
+      return setPhoneNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPhoneNumber implements RegisterEvent {
+  const factory _SetPhoneNumber(final String phoneNUmber) = _$_SetPhoneNumber;
+
+  String get phoneNUmber;
+  @JsonKey(ignore: true)
+  _$$_SetPhoneNumberCopyWith<_$_SetPhoneNumber> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetPasswordCopyWith<$Res> {
+  factory _$$_SetPasswordCopyWith(
+          _$_SetPassword value, $Res Function(_$_SetPassword) then) =
+      __$$_SetPasswordCopyWithImpl<$Res>;
+  $Res call({String password});
+}
+
+/// @nodoc
+class __$$_SetPasswordCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res>
+    implements _$$_SetPasswordCopyWith<$Res> {
+  __$$_SetPasswordCopyWithImpl(
+      _$_SetPassword _value, $Res Function(_$_SetPassword) _then)
+      : super(_value, (v) => _then(v as _$_SetPassword));
+
+  @override
+  _$_SetPassword get _value => super._value as _$_SetPassword;
+
+  @override
+  $Res call({
+    Object? password = freezed,
+  }) {
+    return _then(_$_SetPassword(
+      password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetPassword implements _SetPassword {
+  const _$_SetPassword(this.password);
+
+  @override
+  final String password;
+
+  @override
+  String toString() {
+    return 'RegisterEvent.setPassword(password: $password)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetPassword &&
+            const DeepCollectionEquality().equals(other.password, password));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_SetPasswordCopyWith<_$_SetPassword> get copyWith =>
+      __$$_SetPasswordCopyWithImpl<_$_SetPassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
+    required TResult Function() validatePhone,
+    required TResult Function(AccountTypes accountTypes) setAccountType,
+    required TResult Function(MagasinCategory magasinType) setmagasinType,
+    required TResult Function(MagasinSubCategory magasinSubtype)
+        setRestaurantType,
+    required TResult Function() setREstaurantInfo,
+    required TResult Function(DateTime beginHour, DateTime endHour,
+            DateTime beginDay, DateTime endDay, bool workAlldays)
+        setWorkingTime,
+    required TResult Function() selectmagasinPicture,
+    required TResult Function(LatLng postion) setMagasinlocation,
+    required TResult Function(int? value) returnTo,
+  }) {
+    return setPassword(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+  }) {
+    return setPassword?.call(password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
+    TResult Function()? validatePhone,
+    TResult Function(AccountTypes accountTypes)? setAccountType,
+    TResult Function(MagasinCategory magasinType)? setmagasinType,
+    TResult Function(MagasinSubCategory magasinSubtype)? setRestaurantType,
+    TResult Function()? setREstaurantInfo,
+    TResult Function(DateTime beginHour, DateTime endHour, DateTime beginDay,
+            DateTime endDay, bool workAlldays)?
+        setWorkingTime,
+    TResult Function()? selectmagasinPicture,
+    TResult Function(LatLng postion)? setMagasinlocation,
+    TResult Function(int? value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setPassword != null) {
+      return setPassword(password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
+    required TResult Function(_ValidatePhone value) validatePhone,
+    required TResult Function(_SetAccountType value) setAccountType,
+    required TResult Function(_SetmagasinType value) setmagasinType,
+    required TResult Function(_SetRestaurantType value) setRestaurantType,
+    required TResult Function(_SetREstaurantInfo value) setREstaurantInfo,
+    required TResult Function(_SetWorkingTime value) setWorkingTime,
+    required TResult Function(_selectmagasinPicture value) selectmagasinPicture,
+    required TResult Function(_setMagasinlocation value) setMagasinlocation,
+    required TResult Function(_ReturnTo value) returnTo,
+  }) {
+    return setPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+  }) {
+    return setPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
+    TResult Function(_ValidatePhone value)? validatePhone,
+    TResult Function(_SetAccountType value)? setAccountType,
+    TResult Function(_SetmagasinType value)? setmagasinType,
+    TResult Function(_SetRestaurantType value)? setRestaurantType,
+    TResult Function(_SetREstaurantInfo value)? setREstaurantInfo,
+    TResult Function(_SetWorkingTime value)? setWorkingTime,
+    TResult Function(_selectmagasinPicture value)? selectmagasinPicture,
+    TResult Function(_setMagasinlocation value)? setMagasinlocation,
+    TResult Function(_ReturnTo value)? returnTo,
+    required TResult orElse(),
+  }) {
+    if (setPassword != null) {
+      return setPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetPassword implements RegisterEvent {
+  const factory _SetPassword(final String password) = _$_SetPassword;
+
+  String get password;
+  @JsonKey(ignore: true)
+  _$$_SetPasswordCopyWith<_$_SetPassword> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -507,6 +1723,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -528,6 +1749,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -548,6 +1774,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -572,6 +1803,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -590,6 +1826,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -608,6 +1849,11 @@ class _$_ValidatePhone implements _ValidatePhone {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -698,6 +1944,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -719,6 +1970,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -739,6 +1995,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -763,6 +2024,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -781,6 +2047,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -799,6 +2070,11 @@ class _$_SetAccountType implements _SetAccountType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -895,6 +2171,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -916,6 +2197,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -936,6 +2222,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -960,6 +2251,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -978,6 +2274,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -996,6 +2297,11 @@ class _$_SetmagasinType implements _SetmagasinType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1093,6 +2399,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -1114,6 +2425,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1134,6 +2450,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1158,6 +2479,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -1176,6 +2502,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1194,6 +2525,11 @@ class _$_SetRestaurantType implements _SetRestaurantType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1265,6 +2601,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -1286,6 +2627,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1306,6 +2652,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1330,6 +2681,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -1348,6 +2704,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1366,6 +2727,11 @@ class _$_SetREstaurantInfo implements _SetREstaurantInfo {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1503,6 +2869,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -1524,6 +2895,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1545,6 +2921,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1569,6 +2950,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -1587,6 +2973,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1605,6 +2996,11 @@ class _$_SetWorkingTime implements _SetWorkingTime {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1684,6 +3080,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -1705,6 +3106,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1725,6 +3131,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1749,6 +3160,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -1767,6 +3183,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1785,6 +3206,11 @@ class _$_selectmagasinPicture implements _selectmagasinPicture {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1875,6 +3301,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -1896,6 +3327,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1916,6 +3352,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -1940,6 +3381,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -1958,6 +3404,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -1976,6 +3427,11 @@ class _$_setMagasinlocation implements _setMagasinlocation {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -2070,6 +3526,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() validateinfo,
+    required TResult Function(String fname) setFirstName,
+    required TResult Function(String sname) setSecondName,
+    required TResult Function(String userName) setUserName,
+    required TResult Function(String phoneNUmber) setPhoneNumber,
+    required TResult Function(String password) setPassword,
     required TResult Function() validatePhone,
     required TResult Function(AccountTypes accountTypes) setAccountType,
     required TResult Function(MagasinCategory magasinType) setmagasinType,
@@ -2091,6 +3552,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -2111,6 +3577,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? validateinfo,
+    TResult Function(String fname)? setFirstName,
+    TResult Function(String sname)? setSecondName,
+    TResult Function(String userName)? setUserName,
+    TResult Function(String phoneNUmber)? setPhoneNumber,
+    TResult Function(String password)? setPassword,
     TResult Function()? validatePhone,
     TResult Function(AccountTypes accountTypes)? setAccountType,
     TResult Function(MagasinCategory magasinType)? setmagasinType,
@@ -2135,6 +3606,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Validateinfo value) validateinfo,
+    required TResult Function(_SetFirstName value) setFirstName,
+    required TResult Function(_SetSecondName value) setSecondName,
+    required TResult Function(_SetUserName value) setUserName,
+    required TResult Function(_SetPhoneNumber value) setPhoneNumber,
+    required TResult Function(_SetPassword value) setPassword,
     required TResult Function(_ValidatePhone value) validatePhone,
     required TResult Function(_SetAccountType value) setAccountType,
     required TResult Function(_SetmagasinType value) setmagasinType,
@@ -2153,6 +3629,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -2171,6 +3652,11 @@ class _$_ReturnTo implements _ReturnTo {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Validateinfo value)? validateinfo,
+    TResult Function(_SetFirstName value)? setFirstName,
+    TResult Function(_SetSecondName value)? setSecondName,
+    TResult Function(_SetUserName value)? setUserName,
+    TResult Function(_SetPhoneNumber value)? setPhoneNumber,
+    TResult Function(_SetPassword value)? setPassword,
     TResult Function(_ValidatePhone value)? validatePhone,
     TResult Function(_SetAccountType value)? setAccountType,
     TResult Function(_SetmagasinType value)? setmagasinType,
@@ -2201,6 +3687,12 @@ abstract class _ReturnTo implements RegisterEvent {
 /// @nodoc
 mixin _$RegisterState {
   int get index => throw _privateConstructorUsedError;
+  UserName get usename => throw _privateConstructorUsedError;
+  UserName get firstName => throw _privateConstructorUsedError;
+  UserName get secondName => throw _privateConstructorUsedError;
+  PhoneNumber get phoneNumber => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  bool get showErrors => throw _privateConstructorUsedError;
   Option<AccountTypes> get accountType => throw _privateConstructorUsedError;
   Option<MagasinCategory> get magasinType => throw _privateConstructorUsedError;
   Option<MagasinSubCategory> get subtype => throw _privateConstructorUsedError;
@@ -2224,6 +3716,12 @@ abstract class $RegisterStateCopyWith<$Res> {
       _$RegisterStateCopyWithImpl<$Res>;
   $Res call(
       {int index,
+      UserName usename,
+      UserName firstName,
+      UserName secondName,
+      PhoneNumber phoneNumber,
+      Password password,
+      bool showErrors,
       Option<AccountTypes> accountType,
       Option<MagasinCategory> magasinType,
       Option<MagasinSubCategory> subtype,
@@ -2248,6 +3746,12 @@ class _$RegisterStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = freezed,
+    Object? usename = freezed,
+    Object? firstName = freezed,
+    Object? secondName = freezed,
+    Object? phoneNumber = freezed,
+    Object? password = freezed,
+    Object? showErrors = freezed,
     Object? accountType = freezed,
     Object? magasinType = freezed,
     Object? subtype = freezed,
@@ -2264,6 +3768,30 @@ class _$RegisterStateCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      usename: usename == freezed
+          ? _value.usename
+          : usename // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      secondName: secondName == freezed
+          ? _value.secondName
+          : secondName // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as PhoneNumber,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      showErrors: showErrors == freezed
+          ? _value.showErrors
+          : showErrors // ignore: cast_nullable_to_non_nullable
+              as bool,
       accountType: accountType == freezed
           ? _value.accountType
           : accountType // ignore: cast_nullable_to_non_nullable
@@ -2317,6 +3845,12 @@ abstract class _$$_RegisterStateCopyWith<$Res>
   @override
   $Res call(
       {int index,
+      UserName usename,
+      UserName firstName,
+      UserName secondName,
+      PhoneNumber phoneNumber,
+      Password password,
+      bool showErrors,
       Option<AccountTypes> accountType,
       Option<MagasinCategory> magasinType,
       Option<MagasinSubCategory> subtype,
@@ -2343,6 +3877,12 @@ class __$$_RegisterStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = freezed,
+    Object? usename = freezed,
+    Object? firstName = freezed,
+    Object? secondName = freezed,
+    Object? phoneNumber = freezed,
+    Object? password = freezed,
+    Object? showErrors = freezed,
     Object? accountType = freezed,
     Object? magasinType = freezed,
     Object? subtype = freezed,
@@ -2359,6 +3899,30 @@ class __$$_RegisterStateCopyWithImpl<$Res>
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
+      usename: usename == freezed
+          ? _value.usename
+          : usename // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      secondName: secondName == freezed
+          ? _value.secondName
+          : secondName // ignore: cast_nullable_to_non_nullable
+              as UserName,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as PhoneNumber,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      showErrors: showErrors == freezed
+          ? _value.showErrors
+          : showErrors // ignore: cast_nullable_to_non_nullable
+              as bool,
       accountType: accountType == freezed
           ? _value.accountType
           : accountType // ignore: cast_nullable_to_non_nullable
@@ -2408,6 +3972,12 @@ class __$$_RegisterStateCopyWithImpl<$Res>
 class _$_RegisterState implements _RegisterState {
   const _$_RegisterState(
       {required this.index,
+      required this.usename,
+      required this.firstName,
+      required this.secondName,
+      required this.phoneNumber,
+      required this.password,
+      required this.showErrors,
       required this.accountType,
       required this.magasinType,
       required this.subtype,
@@ -2421,6 +3991,18 @@ class _$_RegisterState implements _RegisterState {
 
   @override
   final int index;
+  @override
+  final UserName usename;
+  @override
+  final UserName firstName;
+  @override
+  final UserName secondName;
+  @override
+  final PhoneNumber phoneNumber;
+  @override
+  final Password password;
+  @override
+  final bool showErrors;
   @override
   final Option<AccountTypes> accountType;
   @override
@@ -2444,7 +4026,7 @@ class _$_RegisterState implements _RegisterState {
 
   @override
   String toString() {
-    return 'RegisterState(index: $index, accountType: $accountType, magasinType: $magasinType, subtype: $subtype, beginHour: $beginHour, endHour: $endHour, beginDay: $beginDay, endDay: $endDay, workAlldays: $workAlldays, picture: $picture, magasinAdress: $magasinAdress)';
+    return 'RegisterState(index: $index, usename: $usename, firstName: $firstName, secondName: $secondName, phoneNumber: $phoneNumber, password: $password, showErrors: $showErrors, accountType: $accountType, magasinType: $magasinType, subtype: $subtype, beginHour: $beginHour, endHour: $endHour, beginDay: $beginDay, endDay: $endDay, workAlldays: $workAlldays, picture: $picture, magasinAdress: $magasinAdress)';
   }
 
   @override
@@ -2453,6 +4035,15 @@ class _$_RegisterState implements _RegisterState {
         (other.runtimeType == runtimeType &&
             other is _$_RegisterState &&
             const DeepCollectionEquality().equals(other.index, index) &&
+            const DeepCollectionEquality().equals(other.usename, usename) &&
+            const DeepCollectionEquality().equals(other.firstName, firstName) &&
+            const DeepCollectionEquality()
+                .equals(other.secondName, secondName) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrors, showErrors) &&
             const DeepCollectionEquality()
                 .equals(other.accountType, accountType) &&
             const DeepCollectionEquality()
@@ -2473,6 +4064,12 @@ class _$_RegisterState implements _RegisterState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(index),
+      const DeepCollectionEquality().hash(usename),
+      const DeepCollectionEquality().hash(firstName),
+      const DeepCollectionEquality().hash(secondName),
+      const DeepCollectionEquality().hash(phoneNumber),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(showErrors),
       const DeepCollectionEquality().hash(accountType),
       const DeepCollectionEquality().hash(magasinType),
       const DeepCollectionEquality().hash(subtype),
@@ -2493,6 +4090,12 @@ class _$_RegisterState implements _RegisterState {
 abstract class _RegisterState implements RegisterState {
   const factory _RegisterState(
       {required final int index,
+      required final UserName usename,
+      required final UserName firstName,
+      required final UserName secondName,
+      required final PhoneNumber phoneNumber,
+      required final Password password,
+      required final bool showErrors,
       required final Option<AccountTypes> accountType,
       required final Option<MagasinCategory> magasinType,
       required final Option<MagasinSubCategory> subtype,
@@ -2506,6 +4109,18 @@ abstract class _RegisterState implements RegisterState {
 
   @override
   int get index;
+  @override
+  UserName get usename;
+  @override
+  UserName get firstName;
+  @override
+  UserName get secondName;
+  @override
+  PhoneNumber get phoneNumber;
+  @override
+  Password get password;
+  @override
+  bool get showErrors;
   @override
   Option<AccountTypes> get accountType;
   @override

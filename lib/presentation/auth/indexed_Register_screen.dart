@@ -66,7 +66,3 @@ class IndexedRegisterPage extends StatelessWidget {
         ));
   }
 }
-
-void main(List<String> args) {
-  List.generate(24, (index) => DateTime(2022, 1, 1, index));
-}
